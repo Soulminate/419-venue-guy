@@ -77,9 +77,201 @@
       animation: hero-gradient-shift 20s ease-in-out infinite;
     }
 
+    .hero-with-fire.hero-gradient {
+      background: linear-gradient(
+        180deg,
+        rgba(248, 244, 236, 0.94) 0%,
+        rgba(248, 244, 236, 0.72) 28%,
+        rgba(248, 244, 236, 0.38) 55%,
+        rgba(248, 244, 236, 0.12) 100%
+      );
+      animation: none;
+    }
+
     @keyframes hero-gradient-shift {
       0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
       50% { background-position: 100% 50%, 50% 100%, 80% 20%, 0% 0%; }
+    }
+
+    .hero-fire-fixed {
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .hero-fire-fixed.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-fire-ambient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 130% 90% at 50% 108%, rgba(255, 118, 38, 0.42), transparent 58%),
+        radial-gradient(ellipse 70% 55% at 22% 102%, rgba(255, 72, 18, 0.22), transparent 52%),
+        radial-gradient(ellipse 70% 55% at 78% 102%, rgba(255, 168, 52, 0.2), transparent 52%),
+        linear-gradient(180deg, rgba(28, 23, 18, 0.02) 0%, rgba(48, 24, 10, 0.18) 72%, rgba(18, 8, 4, 0.55) 100%);
+    }
+
+    .hero-fire-grill {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: min(92vw, 52rem);
+      height: min(42vh, 18rem);
+      transform: translateX(-50%);
+    }
+
+    .grill-grate {
+      position: absolute;
+      bottom: 0;
+      left: 8%;
+      right: 8%;
+      height: 1.35rem;
+      border-radius: 0.35rem 0.35rem 0 0;
+      background:
+        repeating-linear-gradient(90deg, #14100c 0 0.45rem, #2a2118 0.45rem 0.65rem),
+        linear-gradient(180deg, #3d3228, #1c1712);
+      box-shadow:
+        0 -6px 28px rgba(255, 110, 30, 0.45),
+        inset 0 2px 4px rgba(255, 200, 120, 0.15);
+    }
+
+    .grill-legs {
+      position: absolute;
+      bottom: -0.15rem;
+      width: 0.55rem;
+      height: 2.5rem;
+      background: linear-gradient(180deg, #2a2118, #14100c);
+      border-radius: 0 0 0.2rem 0.2rem;
+    }
+
+    .grill-legs-left { left: 14%; }
+    .grill-legs-right { right: 14%; }
+
+    .flame {
+      position: absolute;
+      bottom: 1.2rem;
+      border-radius: 50% 50% 42% 42% / 68% 68% 32% 32%;
+      transform-origin: 50% 100%;
+      filter: blur(1px);
+      mix-blend-mode: screen;
+      animation: flame-flicker var(--flame-duration, 2.8s) ease-in-out infinite;
+      animation-delay: var(--flame-delay, 0s);
+    }
+
+    .flame-1 {
+      left: 38%;
+      width: 4.5rem;
+      height: 7.5rem;
+      background: radial-gradient(ellipse at 50% 90%, #fff6c8 0%, #ffb347 28%, #ff5c1a 58%, transparent 78%);
+      --flame-duration: 2.4s;
+    }
+
+    .flame-2 {
+      left: 46%;
+      width: 5.5rem;
+      height: 9.5rem;
+      background: radial-gradient(ellipse at 50% 90%, #fff9d6 0%, #ffc857 25%, #ff6b1a 55%, transparent 80%);
+      --flame-duration: 2.1s;
+      --flame-delay: -0.4s;
+    }
+
+    .flame-3 {
+      left: 54%;
+      width: 4rem;
+      height: 7rem;
+      background: radial-gradient(ellipse at 50% 90%, #ffe8a8 0%, #ff9f3d 30%, #e84a12 60%, transparent 78%);
+      --flame-duration: 2.7s;
+      --flame-delay: -0.9s;
+    }
+
+    .flame-4 {
+      left: 30%;
+      width: 3rem;
+      height: 5.5rem;
+      background: radial-gradient(ellipse at 50% 90%, #ffd88a 0%, #ff7b2e 45%, transparent 75%);
+      --flame-duration: 3.1s;
+      --flame-delay: -1.2s;
+      opacity: 0.85;
+    }
+
+    .flame-5 {
+      left: 62%;
+      width: 3.2rem;
+      height: 6rem;
+      background: radial-gradient(ellipse at 50% 90%, #ffd88a 0%, #ff7b2e 45%, transparent 75%);
+      --flame-duration: 2.9s;
+      --flame-delay: -0.6s;
+      opacity: 0.85;
+    }
+
+    @keyframes flame-flicker {
+      0%, 100% {
+        transform: scale(1) translateY(0) skewX(0deg);
+        opacity: 0.92;
+      }
+      25% {
+        transform: scale(1.06, 1.12) translateY(-4px) skewX(-3deg);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(0.94, 1.02) translateY(2px) skewX(2deg);
+        opacity: 0.82;
+      }
+      75% {
+        transform: scale(1.03, 1.08) translateY(-2px) skewX(-1deg);
+        opacity: 0.96;
+      }
+    }
+
+    .hero-fire-embers {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .ember {
+      position: absolute;
+      bottom: 2rem;
+      width: 0.22rem;
+      height: 0.22rem;
+      border-radius: 9999px;
+      background: #ffb347;
+      box-shadow: 0 0 8px #ff6b1a;
+      animation: ember-rise var(--ember-duration, 4s) linear infinite;
+      animation-delay: var(--ember-delay, 0s);
+      opacity: 0;
+    }
+
+    @keyframes ember-rise {
+      0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+      }
+      8% { opacity: 0.9; }
+      100% {
+        transform: translateY(-12rem) translateX(var(--ember-drift, 12px)) scale(0.2);
+        opacity: 0;
+      }
+    }
+
+    .ember-1 { left: 42%; --ember-duration: 3.6s; --ember-drift: -18px; }
+    .ember-2 { left: 48%; --ember-duration: 4.2s; --ember-delay: -1s; --ember-drift: 10px; }
+    .ember-3 { left: 55%; --ember-duration: 3.9s; --ember-delay: -2s; --ember-drift: 22px; }
+    .ember-4 { left: 37%; --ember-duration: 4.8s; --ember-delay: -0.5s; --ember-drift: -8px; }
+    .ember-5 { left: 60%; --ember-duration: 4.1s; --ember-delay: -1.8s; --ember-drift: 14px; }
+
+    .hero-with-fire .hero-pattern,
+    .hero-with-fire .hero-orb {
+      opacity: 0.15;
     }
 
     .hero-orb {
@@ -501,11 +693,15 @@
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
       .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-stage::before,
-      .services-watermark {
+      .services-watermark, .flame, .ember, .hero-fire-fixed {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
+      }
+
+      .hero-fire-fixed.is-active .hero-fire-ambient {
+        background: linear-gradient(180deg, rgba(248, 244, 236, 0.3) 0%, rgba(80, 40, 15, 0.25) 100%);
       }
     }
   </style>
@@ -534,14 +730,36 @@
     </div>
   </header>
 
+  <!-- Fixed grill fire — stays put while hero scrolls over it; ends at marquee -->
+  <div id="heroFire" class="hero-fire-fixed" aria-hidden="true">
+    <div class="hero-fire-ambient"></div>
+    <div class="hero-fire-grill">
+      <div class="flame flame-1"></div>
+      <div class="flame flame-2"></div>
+      <div class="flame flame-3"></div>
+      <div class="flame flame-4"></div>
+      <div class="flame flame-5"></div>
+      <div class="grill-grate"></div>
+      <div class="grill-legs grill-legs-left"></div>
+      <div class="grill-legs grill-legs-right"></div>
+    </div>
+    <div class="hero-fire-embers">
+      <span class="ember ember-1"></span>
+      <span class="ember ember-2"></span>
+      <span class="ember ember-3"></span>
+      <span class="ember ember-4"></span>
+      <span class="ember ember-5"></span>
+    </div>
+  </div>
+
   <!-- Hero -->
-  <section class="hero-gradient relative overflow-hidden pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-28">
+  <section id="hero" class="hero-gradient hero-with-fire relative z-[2] overflow-hidden pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-28">
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
-    <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
       <div class="reveal order-2 lg:order-1">
         <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber backdrop-blur-sm">
           <span class="hero-pill-dot h-1.5 w-1.5 rounded-full bg-amber"></span>
@@ -628,7 +846,7 @@
   </section>
 
   <!-- Marquee -->
-  <div class="overflow-hidden border-y border-ink/8 bg-gradient-to-r from-ink via-bark to-ink py-4 text-cream" aria-hidden="true">
+  <div class="relative z-[3] overflow-hidden border-y border-ink/8 bg-gradient-to-r from-ink via-bark to-ink py-4 text-cream" aria-hidden="true">
     <div class="marquee-track flex w-max gap-10 whitespace-nowrap text-sm font-medium uppercase tracking-[0.25em]">
       <span>Home-style catering</span><span>·</span>
       <span>Backyard hibachi</span><span>·</span>
@@ -930,6 +1148,32 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const hero = document.getElementById('hero');
+    const heroFire = document.getElementById('heroFire');
+
+    function updateHeroFire() {
+      if (!hero || !heroFire) return;
+
+      const rect = hero.getBoundingClientRect();
+      const viewportBottom = window.innerHeight;
+
+      if (rect.bottom <= 0 || rect.top >= viewportBottom) {
+        heroFire.classList.remove('is-active');
+        return;
+      }
+
+      const top = Math.max(0, rect.top);
+      const height = Math.min(viewportBottom, rect.bottom) - top;
+
+      heroFire.classList.add('is-active');
+      heroFire.style.top = `${top}px`;
+      heroFire.style.height = `${height}px`;
+    }
+
+    window.addEventListener('scroll', updateHeroFire, { passive: true });
+    window.addEventListener('resize', updateHeroFire);
+    updateHeroFire();
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
