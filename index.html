@@ -93,143 +93,78 @@
       50% { background-position: 100% 50%, 50% 100%, 80% 20%, 0% 0%; }
     }
 
-    .hero-fire-fixed {
-      position: fixed;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      pointer-events: none;
-      overflow: hidden;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
-    }
-
-    .hero-fire-fixed.is-active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .hero-fire-ambient {
+    .hero-fire-layer {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 140% 100% at 50% 112%, rgba(255, 108, 32, 0.38), transparent 62%),
-        radial-gradient(ellipse 90% 70% at 35% 108%, rgba(255, 64, 16, 0.18), transparent 55%),
-        radial-gradient(ellipse 90% 70% at 65% 108%, rgba(255, 176, 56, 0.16), transparent 55%),
-        radial-gradient(ellipse 60% 45% at 50% 95%, rgba(255, 220, 140, 0.12), transparent 70%),
-        linear-gradient(180deg, rgba(248, 244, 236, 0.05) 0%, rgba(60, 28, 8, 0.08) 78%, rgba(30, 12, 4, 0.22) 100%);
-    }
-
-    .hero-fire-scene {
-      position: absolute;
-      bottom: -2%;
-      left: 50%;
-      width: min(115vw, 56rem);
-      height: min(72vh, 34rem);
-      transform: translateX(-50%);
+      z-index: 0;
+      overflow: hidden;
       pointer-events: none;
     }
 
-    .fire-svg {
-      display: block;
+    .hero-fire-sticky {
+      position: sticky;
+      top: 0;
       width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-
-    .fire-glow {
-      transform-origin: 250px 780px;
-      animation: fire-glow-pulse 3.2s ease-in-out infinite;
-    }
-
-    @keyframes fire-glow-pulse {
-      0%, 100% { opacity: 0.75; transform: scale(1); }
-      50% { opacity: 0.95; transform: scale(1.06); }
-    }
-
-    .fire-tongue {
-      transform-origin: center bottom;
-      animation: tongue-flicker var(--tongue-dur, 2.6s) ease-in-out infinite;
-      animation-delay: var(--tongue-delay, 0s);
-    }
-
-    .fire-tongue-1 { --tongue-dur: 2.2s; }
-    .fire-tongue-2 { --tongue-dur: 2.7s; --tongue-delay: -0.5s; }
-    .fire-tongue-3 { --tongue-dur: 2.4s; --tongue-delay: -1.1s; }
-    .fire-tongue-4 { --tongue-dur: 3s; --tongue-delay: -0.8s; }
-    .fire-tongue-5 { --tongue-dur: 2.9s; --tongue-delay: -1.6s; }
-    .fire-tongue-6 { --tongue-dur: 2.5s; --tongue-delay: -0.3s; }
-
-    .fire-core {
-      transform-origin: center bottom;
-      animation: core-flicker 1.8s ease-in-out infinite;
-      animation-delay: var(--tongue-delay, 0s);
-    }
-
-    @keyframes tongue-flicker {
-      0%, 100% {
-        transform: scaleY(1) scaleX(1) rotate(0deg);
-        opacity: 0.88;
-      }
-      20% {
-        transform: scaleY(1.1) scaleX(0.94) rotate(-1.5deg);
-        opacity: 1;
-      }
-      45% {
-        transform: scaleY(0.94) scaleX(1.05) rotate(1deg);
-        opacity: 0.8;
-      }
-      70% {
-        transform: scaleY(1.06) scaleX(0.97) rotate(-0.5deg);
-        opacity: 0.94;
-      }
-    }
-
-    @keyframes core-flicker {
-      0%, 100% { transform: scaleY(1) translateY(0); opacity: 0.95; }
-      35% { transform: scaleY(1.08) translateY(-6px); opacity: 1; }
-      65% { transform: scaleY(0.92) translateY(4px); opacity: 0.85; }
-    }
-
-    .hero-fire-embers {
-      position: absolute;
-      inset: 0;
+      height: 100vh;
       overflow: hidden;
     }
 
-    .ember {
+    .hero-fire-video {
       position: absolute;
-      bottom: 12%;
-      width: 0.2rem;
-      height: 0.2rem;
-      border-radius: 9999px;
-      background: #ffcc66;
-      box-shadow: 0 0 10px #ff7722;
-      animation: ember-rise var(--ember-duration, 4s) linear infinite;
-      animation-delay: var(--ember-delay, 0s);
-      opacity: 0;
+      left: 50%;
+      bottom: -6%;
+      width: 185%;
+      max-width: none;
+      height: 82vh;
+      min-height: 24rem;
+      transform: translateX(-50%);
+      object-fit: cover;
+      object-position: center bottom;
+      opacity: 0.94;
+      filter: saturate(1.12) contrast(1.05);
+      -webkit-mask-image: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 14%,
+        black 38%,
+        black 90%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 14%,
+        black 38%,
+        black 90%,
+        transparent 100%
+      );
     }
 
-    @keyframes ember-rise {
-      0% {
-        transform: translateY(0) translateX(0) scale(1);
-        opacity: 0;
-      }
-      10% { opacity: 0.85; }
-      100% {
-        transform: translateY(-22rem) translateX(var(--ember-drift, 12px)) scale(0.15);
-        opacity: 0;
-      }
+    .hero-fire-glow {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 150%;
+      height: 48%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(ellipse 72% 85% at 50% 100%, rgba(255, 110, 35, 0.3), transparent 72%),
+        radial-gradient(ellipse 42% 55% at 32% 100%, rgba(255, 70, 18, 0.16), transparent 68%),
+        radial-gradient(ellipse 42% 55% at 68% 100%, rgba(255, 70, 18, 0.16), transparent 68%);
     }
 
-    .ember-1 { left: 44%; --ember-duration: 4.2s; --ember-drift: -22px; }
-    .ember-2 { left: 50%; --ember-duration: 5s; --ember-delay: -1.2s; --ember-drift: 14px; }
-    .ember-3 { left: 56%; --ember-duration: 4.6s; --ember-delay: -2.4s; --ember-drift: 28px; }
-    .ember-4 { left: 38%; --ember-duration: 5.4s; --ember-delay: -0.6s; --ember-drift: -12px; }
-    .ember-5 { left: 62%; --ember-duration: 4.8s; --ember-delay: -2s; --ember-drift: 18px; }
-    .ember-6 { left: 47%; --ember-duration: 3.8s; --ember-delay: -3s; --ember-drift: -6px; }
-    .ember-7 { left: 53%; --ember-duration: 4.4s; --ember-delay: -1.6s; --ember-drift: 8px; }
+    .hero-fire-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(248, 244, 236, 0.9) 0%,
+        rgba(248, 244, 236, 0.5) 30%,
+        rgba(248, 244, 236, 0.18) 58%,
+        rgba(248, 244, 236, 0.04) 80%,
+        transparent 100%
+      );
+    }
 
     .hero-with-fire .hero-pattern,
     .hero-with-fire .hero-orb {
@@ -655,15 +590,17 @@
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
       .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-stage::before,
-      .services-watermark, .fire-tongue, .fire-core, .fire-glow, .ember, .hero-fire-fixed {
+      .services-watermark, .hero-fire-video {
         animation: none !important;
         transition: none !important;
-        opacity: 1 !important;
-        transform: none !important;
       }
 
-      .hero-fire-fixed.is-active .hero-fire-ambient {
-        background: linear-gradient(180deg, rgba(248, 244, 236, 0.3) 0%, rgba(80, 40, 15, 0.25) 100%);
+      .hero-fire-video {
+        display: none;
+      }
+
+      .hero-fire-glow {
+        opacity: 0.65;
       }
     }
   </style>
@@ -692,94 +629,18 @@
     </div>
   </header>
 
-  <!-- Fixed campfire — stays put while hero scrolls over it; ends at marquee -->
-  <div id="heroFire" class="hero-fire-fixed" aria-hidden="true">
-    <div class="hero-fire-ambient"></div>
-    <div class="hero-fire-scene">
-      <svg class="fire-svg" viewBox="0 0 500 820" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="fireGlow" cx="50%" cy="100%" r="75%">
-            <stop offset="0%" stop-color="#ffae42" stop-opacity="0.55"/>
-            <stop offset="45%" stop-color="#ff5a18" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="flameOuter" x1="50%" y1="100%" x2="50%" y2="0%">
-            <stop offset="0%" stop-color="#8b1a00"/>
-            <stop offset="35%" stop-color="#e84a00"/>
-            <stop offset="72%" stop-color="#ff8c1a" stop-opacity="0.75"/>
-            <stop offset="100%" stop-color="#ffcc66" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="flameMid" x1="50%" y1="100%" x2="50%" y2="0%">
-            <stop offset="0%" stop-color="#c43a00"/>
-            <stop offset="40%" stop-color="#ff6a14"/>
-            <stop offset="80%" stop-color="#ffbb44" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#fff4c8" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="flameCore" x1="50%" y1="100%" x2="50%" y2="0%">
-            <stop offset="0%" stop-color="#ff8a20"/>
-            <stop offset="45%" stop-color="#ffd060"/>
-            <stop offset="85%" stop-color="#fff8dc"/>
-            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-          </linearGradient>
-          <filter id="fireSoft" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <filter id="fireWarp" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.045" numOctaves="2" seed="8" result="noise">
-              <animate attributeName="baseFrequency" dur="6s" values="0.012 0.045;0.018 0.06;0.014 0.05;0.012 0.045" repeatCount="indefinite"/>
-            </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-        </defs>
-
-        <ellipse class="fire-glow" cx="250" cy="790" rx="210" ry="70" fill="url(#fireGlow)" filter="url(#fireSoft)"/>
-
-        <g filter="url(#fireWarp)">
-          <g class="fire-tongue fire-tongue-4">
-            <path d="M115 800 C85 720, 95 540, 130 400 C145 500, 155 500, 168 400 C195 540, 185 720, 115 800 Z" fill="url(#flameOuter)" opacity="0.55"/>
-          </g>
-          <g class="fire-tongue fire-tongue-5">
-            <path d="M385 800 C415 720, 405 540, 370 400 C355 500, 345 500, 332 400 C305 540, 315 720, 385 800 Z" fill="url(#flameOuter)" opacity="0.55"/>
-          </g>
-          <g class="fire-tongue fire-tongue-3">
-            <path d="M165 798 C140 680, 155 480, 195 300 C210 420, 220 420, 235 300 C268 480, 252 680, 165 798 Z" fill="url(#flameOuter)" opacity="0.7"/>
-          </g>
-          <g class="fire-tongue fire-tongue-6">
-            <path d="M335 798 C360 680, 345 480, 305 300 C290 420, 280 420, 265 300 C232 480, 248 680, 335 798 Z" fill="url(#flameOuter)" opacity="0.7"/>
-          </g>
-          <g class="fire-tongue fire-tongue-2">
-            <path d="M205 802 C175 660, 190 420, 228 220 C242 340, 252 340, 266 220 C298 420, 282 660, 205 802 Z" fill="url(#flameMid)" opacity="0.82"/>
-          </g>
-          <g class="fire-tongue fire-tongue-1">
-            <path d="M250 805 C210 680, 205 440, 238 140 C248 280, 252 280, 262 140 C295 440, 290 680, 250 805 Z" fill="url(#flameMid)" opacity="0.9"/>
-          </g>
-        </g>
-
-        <g class="fire-core fire-tongue-1">
-          <path d="M250 800 C228 680, 232 500, 248 320 C252 400, 254 400, 258 320 C274 500, 272 680, 250 800 Z" fill="url(#flameCore)" opacity="0.92"/>
-        </g>
-        <g class="fire-core fire-tongue-2">
-          <path d="M250 790 C236 700, 240 560, 249 400 C251 460, 253 460, 255 400 C264 560, 260 700, 250 790 Z" fill="url(#flameCore)" opacity="0.75"/>
-        </g>
-      </svg>
-    </div>
-    <div class="hero-fire-embers">
-      <span class="ember ember-1"></span>
-      <span class="ember ember-2"></span>
-      <span class="ember ember-3"></span>
-      <span class="ember ember-4"></span>
-      <span class="ember ember-5"></span>
-      <span class="ember ember-6"></span>
-      <span class="ember ember-7"></span>
-    </div>
-  </div>
-
   <!-- Hero -->
   <section id="hero" class="hero-gradient hero-with-fire relative z-[2] overflow-hidden pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-28">
+    <div class="hero-fire-layer" aria-hidden="true">
+      <div class="hero-fire-sticky">
+        <!-- Campfire footage: Wikimedia Commons, CC BY-SA 4.0 -->
+        <video class="hero-fire-video" autoplay muted loop playsinline preload="metadata">
+          <source src="assets/fire.webm" type="video/webm" />
+        </video>
+        <div class="hero-fire-glow"></div>
+        <div class="hero-fire-scrim"></div>
+      </div>
+    </div>
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
@@ -1174,32 +1035,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    const hero = document.getElementById('hero');
-    const heroFire = document.getElementById('heroFire');
-
-    function updateHeroFire() {
-      if (!hero || !heroFire) return;
-
-      const rect = hero.getBoundingClientRect();
-      const viewportBottom = window.innerHeight;
-
-      if (rect.bottom <= 0 || rect.top >= viewportBottom) {
-        heroFire.classList.remove('is-active');
-        return;
-      }
-
-      const top = Math.max(0, rect.top);
-      const height = Math.min(viewportBottom, rect.bottom) - top;
-
-      heroFire.classList.add('is-active');
-      heroFire.style.top = `${top}px`;
-      heroFire.style.height = `${height}px`;
-    }
-
-    window.addEventListener('scroll', updateHeroFire, { passive: true });
-    window.addEventListener('resize', updateHeroFire);
-    updateHeroFire();
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
