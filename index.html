@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="419 Venue Guy — Fremont, Ohio catering, backyard hibachi, food trailer events, photobooths & more. We specialize in smiles. Call 419-208-5568." />
+  <title>419 Venue Guy | Catering & Events in Fremont, Ohio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#f8f4ec',
+            ink: '#1c1712',
+            bark: '#3d2e22',
+            amber: '#c47a1a',
+            gold: '#e8b84a',
+            rust: '#9e4b2f',
+            moss: '#2f4a3a',
+            blush: '#f0e0d0',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Instrument Sans', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            glow: '0 0 80px -20px rgba(196, 122, 26, 0.35)',
+            card: '0 24px 60px -28px rgba(28, 23, 18, 0.35)',
+            lift: '0 12px 40px -16px rgba(28, 23, 18, 0.25)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body {
+      background: #f8f4ec;
+      color: #1c1712;
+    }
+
+    .grain::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 9999;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-gradient {
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(232, 184, 74, 0.18), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(47, 74, 58, 0.12), transparent 55%),
+        linear-gradient(165deg, #f8f4ec 0%, #f0e6d8 45%, #f8f4ec 100%);
+    }
+
+    .img-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+    }
+
+    .img-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .marquee-track {
+      animation: marquee 32s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .service-card:hover .service-img {
+      transform: scale(1.06);
+    }
+
+    .service-img {
+      transition: transform 0.7s var(--ease-out-expo);
+    }
+
+    .call-pulse {
+      animation: pulse-ring 2.4s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(196, 122, 26, 0.45); }
+      70% { box-shadow: 0 0 0 14px rgba(196, 122, 26, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(196, 122, 26, 0); }
+    }
+
+    .five-star-badge {
+      background: linear-gradient(135deg, #fffdf8 0%, #fff6e8 45%, #ffefd6 100%);
+      border: 1px solid rgba(196, 122, 26, 0.28);
+      box-shadow: 0 20px 50px -24px rgba(196, 122, 26, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .five-star-badge .stars {
+      color: #e8b84a;
+      text-shadow: 0 0 18px rgba(232, 184, 74, 0.45);
+      letter-spacing: 0.12em;
+    }
+
+    .five-star-shine {
+      animation: star-shine 3s ease-in-out infinite;
+    }
+
+    @keyframes star-shine {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.88; transform: scale(1.04); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="grain font-sans antialiased">
+
+  <!-- Header -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-cream/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+      <a href="#" class="group flex items-center gap-3">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-cream font-display text-sm font-bold tracking-tight shadow-lift">419</span>
+        <div class="leading-tight">
+          <p class="font-display text-lg font-semibold text-ink">Venue Guy</p>
+          <p class="text-xs font-medium uppercase tracking-[0.2em] text-bark/70">Fremont · Ohio</p>
+        </div>
+      </a>
+      <nav class="hidden items-center gap-8 text-sm font-medium text-bark md:flex" aria-label="Main">
+        <a href="#services" class="transition hover:text-amber">Services</a>
+        <a href="#why" class="transition hover:text-amber">Why Us</a>
+        <a href="#proof" class="transition hover:text-amber">Reviews</a>
+        <a href="#gallery" class="transition hover:text-amber">Gallery</a>
+      </nav>
+      <a href="tel:4192085568" class="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-cream shadow-lift transition hover:bg-bark sm:inline-flex">
+        419-208-5568
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-gradient relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-28">
+    <div class="absolute -right-24 top-20 h-96 w-96 rounded-full bg-gold/20 blur-3xl"></div>
+    <div class="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-moss/10 blur-3xl"></div>
+
+    <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <div class="reveal">
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber"></span>
+          Serving the 419
+        </p>
+        <h1 class="font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.6rem]">
+          Backyard hibachi.<br />
+          <span class="italic text-rust">Food trailer nights.</span><br />
+          Events made easy.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-bark/90">
+          Chef Zach Beckman brings the kitchen to you — home-style catering, on-site hibachi, photobooths, and the kind of personal service that makes people stop mid-bite and smile.
+        </p>
+        <p class="mt-4 font-display text-xl italic text-moss">We specialize in smiles!</p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="tel:4192085568" class="call-pulse inline-flex items-center gap-2 rounded-full bg-amber px-7 py-3.5 text-base font-semibold text-white shadow-glow transition hover:bg-rust">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call 419-208-5568
+          </a>
+          <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-7 py-3.5 text-base font-semibold text-ink transition hover:border-amber/40 hover:bg-white">
+            See what we offer
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-10 border-t border-ink/10 pt-8">
+          <div class="five-star-badge five-star-shine flex flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-4">
+              <div class="stars text-3xl leading-none" aria-hidden="true">★★★★★</div>
+              <div>
+                <p class="font-display text-2xl font-bold text-ink sm:text-3xl">5-Star Service on Google</p>
+                <p class="text-sm font-medium text-bark/80">Perfect 5.0 rating · 4 verified reviews</p>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 self-start rounded-full bg-ink px-4 py-2 text-sm font-semibold text-cream transition hover:bg-bark sm:self-center">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              See Google reviews
+            </a>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-6">
+            <div>
+              <p class="font-display text-2xl font-semibold text-ink">3K+</p>
+              <p class="text-sm text-bark/70">Facebook community</p>
+            </div>
+            <div class="h-10 w-px bg-ink/10"></div>
+            <div>
+              <p class="font-display text-2xl font-semibold text-ink">WTOL 11</p>
+              <p class="text-sm text-bark/70">Featured on TV</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal relative lg:min-h-[540px]">
+        <div class="img-frame absolute right-0 top-0 z-10 h-64 w-[72%] shadow-card sm:h-80">
+          <img
+            src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/434089610-389957170641575-2404844665812852370-n_51_2181355-171276805961507.jpeg"
+            alt="Chef Zach Beckman cooking at an event"
+            class="h-full w-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="img-frame absolute bottom-8 left-0 z-20 h-56 w-[58%] shadow-card sm:h-72">
+          <img
+            src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Food trailer setup at an evening event"
+            class="h-full w-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="img-frame absolute bottom-0 right-8 z-30 h-44 w-[42%] shadow-lift sm:h-52">
+          <img
+            src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/419169885-345077485129544-936370346294760896-n_51_2181355-171276805939984.jpeg"
+            alt="Catered food spread by 419 Venue Guy"
+            class="h-full w-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="absolute -bottom-2 left-1/3 z-40 rounded-2xl border border-white/60 bg-white/90 px-5 py-4 shadow-lift backdrop-blur">
+          <p class="text-xs font-semibold uppercase tracking-widest text-amber">Signature experience</p>
+          <p class="font-display text-lg font-semibold text-ink">Backyard Hibachi</p>
+          <p class="text-sm text-bark/75">Cooked on-site · Parties of 12+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="overflow-hidden border-y border-ink/8 bg-ink py-4 text-cream" aria-hidden="true">
+    <div class="marquee-track flex w-max gap-10 whitespace-nowrap text-sm font-medium uppercase tracking-[0.25em]">
+      <span>Home-style catering</span><span>·</span>
+      <span>Backyard hibachi</span><span>·</span>
+      <span>Food trailer nights</span><span>·</span>
+      <span>Photobooth rental</span><span>·</span>
+      <span>Weddings & graduations</span><span>·</span>
+      <span>In-home chef dinners</span><span>·</span>
+      <span>Dessert & donut walls</span><span>·</span>
+      <span>Fremont · Tiffin · Toledo · the 419</span><span>·</span>
+      <span>Home-style catering</span><span>·</span>
+      <span>Backyard hibachi</span><span>·</span>
+      <span>Food trailer nights</span><span>·</span>
+      <span>Photobooth rental</span><span>·</span>
+      <span>Weddings & graduations</span><span>·</span>
+      <span>In-home chef dinners</span><span>·</span>
+      <span>Dessert & donut walls</span><span>·</span>
+      <span>Fremont · Tiffin · Toledo · the 419</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section id="services" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">What we do</p>
+        <h2 class="mt-3 font-display text-4xl font-semibold text-ink lg:text-5xl">One call. A whole event handled.</h2>
+        <p class="mt-4 text-lg text-bark/80">From an intimate birthday dinner to a wedding with a hundred hungry guests — Zach builds the menu, shows up, and takes the stress off your plate.</p>
+      </div>
+
+      <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <div class="img-frame h-52 overflow-hidden">
+            <img src="https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/486516750_652052924431997_5135800592783546938_n.jpg" alt="Backyard hibachi cooking on site" class="service-img h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">Backyard Hibachi</h3>
+            <p class="mt-2 text-bark/80">Cooked right in front of your guests. Fun, personal, and a little comical — in the best way. Parties of 12 or more.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <div class="img-frame h-52 overflow-hidden">
+            <img src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Black food trailer at a pop-up event" class="service-img h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">Food Trailer</h3>
+            <p class="mt-2 text-bark/80">Pop-up nights, festivals, and private events. The trailer brings the energy — and the lines (sold-out nights happen).</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <div class="img-frame h-52 overflow-hidden">
+            <img src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/419169885-345077485129544-936370346294760896-n_51_2181355-171276805939984.jpeg" alt="Home-style catering spread" class="service-img h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">Home-Style Catering</h3>
+            <p class="mt-2 text-bark/80">BBQ, pasta, taco bars, buffets, and stations. American comfort food with real kitchen craft — not cafeteria trays.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <div class="img-frame h-52 overflow-hidden">
+            <img src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/434084677-389959203974705-5222961629757653002-n_51_2181355-171276806029714.jpeg" alt="In-home chef experience plating" class="service-img h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">In-Home Chef</h3>
+            <p class="mt-2 text-bark/80">A private chef dinner in your kitchen. Birthdays, anniversaries, or any night you want to feel like the guest of honor.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <div class="img-frame h-52 overflow-hidden">
+            <img src="https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/484492257_641931935444096_7947797866207355136_n.jpg" alt="419 Venue Guy enclosed photobooth rental" class="service-img h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">Photobooth</h3>
+            <p class="mt-2 text-bark/80">Add something fun that guests actually use. Pair it with catering for weddings, grad parties, and reunions.</p>
+            <p class="mt-3 text-sm font-semibold text-amber">Call for quote →</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <div class="img-frame h-52 overflow-hidden">
+            <img src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/436855380-401147162855909-4117752038085461298-n_51_2181355-171276808892608.jpeg" alt="Donut wall dessert display" class="service-img h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">Dessert &amp; Extras</h3>
+            <p class="mt-2 text-bark/80">Donut walls, dessert carts, cannoli carts, and growing event packages — sound, tents, and more as you need them.</p>
+            <p class="mt-3 text-sm font-semibold text-amber">Call for quote →</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section id="why" class="bg-ink py-20 text-cream lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="grid items-center gap-14 lg:grid-cols-2">
+        <div class="reveal">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Why 419 Venue Guy</p>
+          <h2 class="mt-3 font-display text-4xl font-semibold lg:text-5xl">Small team. Big heart.<br />Zero corporate nonsense.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-cream/80">
+            Zach started this because he loves feeding people and making events feel personal. When you hire 419 Venue Guy, you talk to the guy. He cooks. He shows up. He cares whether your niece got seconds on the mac and cheese.
+          </p>
+          <ul class="mt-8 space-y-4">
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber/20 text-amber">✓</span>
+              <div>
+                <p class="font-semibold">Owner-operated from start to finish</p>
+                <p class="text-sm text-cream/70">Zach replies, plans, and cooks — not a call center.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber/20 text-amber">✓</span>
+              <div>
+                <p class="font-semibold">One vendor, multiple pieces handled</p>
+                <p class="text-sm text-cream/70">Food, photobooth, and growing full-event support.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber/20 text-amber">✓</span>
+              <div>
+                <p class="font-semibold">Rooted in Fremont, traveling the 419</p>
+                <p class="text-sm text-cream/70">Weddings in Tiffin, corporate in Fremont, trailer nights across NWOH.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber/20 text-amber">✓</span>
+              <div>
+                <p class="font-semibold">Every event matters</p>
+                <p class="text-sm text-cream/70">Weddings, graduations, corporate lunches, and the quiet family dinners too.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <div class="rounded-3xl border border-cream/10 bg-bark/50 p-8 backdrop-blur lg:p-10">
+            <p class="font-display text-2xl italic leading-relaxed text-cream">"It means so much to me when a beautiful marriage is sealed with some of our food."</p>
+            <p class="mt-6 text-sm font-semibold uppercase tracking-widest text-gold">— Zach Beckman, 419 Venue Guy</p>
+
+            <div class="mt-10 grid grid-cols-3 gap-4 border-t border-cream/10 pt-8 text-center">
+              <div>
+                <p class="font-display text-3xl font-semibold">1</p>
+                <p class="mt-1 text-xs uppercase tracking-wider text-cream/60">Call or message</p>
+              </div>
+              <div>
+                <p class="font-display text-3xl font-semibold">2</p>
+                <p class="mt-1 text-xs uppercase tracking-wider text-cream/60">Plan your menu</p>
+              </div>
+              <div>
+                <p class="font-display text-3xl font-semibold">3</p>
+                <p class="mt-1 text-xs uppercase tracking-wider text-cream/60">Enjoy the day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section id="proof" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">Loved locally</p>
+        <h2 class="mt-3 font-display text-4xl font-semibold text-ink lg:text-5xl">Neighbors trust him.<br />Guests remember the food.</h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+        <blockquote class="reveal rounded-3xl bg-white p-8 shadow-card">
+          <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">"It was absolutely phenomenal!! Thank you so much!"</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— Brea Held <span class="font-normal text-bark/60">· In-home chef dinner</span></footer>
+        </blockquote>
+
+        <blockquote class="reveal rounded-3xl bg-white p-8 shadow-card">
+          <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">"The menu they picked for their daughter was top notch. What a great spread to celebrate a beautiful graduation."</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— 419 Venue Guy <span class="font-normal text-bark/60">· Graduation catering</span></footer>
+        </blockquote>
+
+        <blockquote class="reveal rounded-3xl bg-moss p-8 text-cream shadow-card">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">As seen on</p>
+          <p class="mt-3 font-display text-2xl font-semibold">WTOL 11</p>
+          <p class="mt-3 leading-relaxed text-cream/85">"Hate setting up for events? Call the 419 Venue Guy." — Good Day on WTOL 11</p>
+          <p class="mt-6 text-sm text-cream/70">Also featured in The News-Messenger for his Terra State kitchen partnership in Fremont.</p>
+        </blockquote>
+      </div>
+
+      <div class="reveal mt-8 five-star-badge rounded-3xl px-8 py-7 text-center shadow-card">
+        <p class="stars five-star-shine text-4xl" aria-hidden="true">★★★★★</p>
+        <p class="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">5-Star Service on Google</p>
+        <p class="mt-2 text-lg text-bark/80">Perfect 5.0 from 4 verified reviews — neighbors rate Zach top marks.</p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3 text-sm font-semibold text-white transition hover:bg-rust">Read Google reviews</a>
+          <a href="https://www.facebook.com/p/419-Venue-Guy-100088818851901/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:border-amber/40">Follow on Facebook</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="bg-blush/40 py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">From real events</p>
+          <h2 class="mt-3 font-display text-4xl font-semibold text-ink">Food worth photographing.</h2>
+        </div>
+        <p class="max-w-sm text-sm text-bark/70">Photos from public listings &amp; social posts. Zach's own gallery coming soon.</p>
+      </div>
+
+      <div class="mt-10 columns-2 gap-4 md:columns-3 lg:columns-4">
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/434167204-391975930439699-3906495660105222184-n_51_2181355-171276806029371.jpeg" alt="Crème brûlée dessert" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/j_51_2181355-171283094721657.jpeg" alt="Party table setup" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://img5.foodbevg.com/117/579/1017948211175798.jpg" alt="Graduation catering spread" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/429915797-374468282190464-836538_51_2181355-171283094546965.jpeg" alt="Catered chicken tray" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/486482287_652052957765327_1498203682800391213_n.jpg" alt="Hibachi on-site cooking" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/436855380-401147162855909-4117752038085461298-n_51_2181355-171276808892608.jpeg" alt="Donut wall display" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="reveal overflow-hidden rounded-[2rem] bg-ink shadow-glow">
+        <div class="grid lg:grid-cols-2">
+          <div class="p-10 lg:p-14">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Let's plan your event</p>
+            <h2 class="mt-4 font-display text-4xl font-semibold text-cream lg:text-5xl">Ready when you are.</h2>
+            <p class="mt-4 text-lg text-cream/80">Tell Zach what you're celebrating. He'll handle the food, the setup, and the details — so you can actually enjoy your own party.</p>
+
+            <div class="mt-8 space-y-4">
+              <a href="tel:4192085568" class="flex items-center gap-4 rounded-2xl bg-amber px-6 py-4 text-lg font-semibold text-white transition hover:bg-rust">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                419-208-5568
+              </a>
+              <a href="mailto:Venueguy419@yahoo.com" class="flex items-center gap-4 rounded-2xl border border-cream/15 px-6 py-4 text-cream transition hover:bg-cream/5">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Venueguy419@yahoo.com
+              </a>
+              <a href="https://www.facebook.com/p/419-Venue-Guy-100088818851901/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 rounded-2xl border border-cream/15 px-6 py-4 text-cream transition hover:bg-cream/5">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Message on Facebook
+              </a>
+            </div>
+          </div>
+
+          <div class="relative min-h-[280px] bg-bark lg:min-h-full">
+            <img src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/j_51_2181355-171283094721657.jpeg" alt="419 Venue Guy event setup" class="absolute inset-0 h-full w-full object-cover opacity-80" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
+            <div class="absolute bottom-0 p-10 lg:p-14">
+              <p class="text-sm font-semibold uppercase tracking-widest text-gold">Based in</p>
+              <p class="font-display text-2xl font-semibold text-cream">Fremont, Ohio</p>
+              <p class="mt-1 text-cream/75">Serving the 419 · Fremont · Tiffin · Toledo area</p>
+              <p class="mt-4 text-sm text-cream/60">2840 Napoleon Rd, Fremont, OH 43420</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-ink/8 py-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-center text-sm text-bark/70 sm:flex-row lg:px-8">
+      <p>© <span id="year"></span> 419 Venue Guy · Zach Beckman</p>
+      <p class="font-display italic text-ink">We specialize in smiles!</p>
+      <a href="tel:4192085568" class="font-semibold text-amber hover:text-rust">419-208-5568</a>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="fixed inset-x-0 bottom-0 z-50 border-t border-ink/10 bg-cream/95 p-3 backdrop-blur-lg sm:hidden">
+    <a href="tel:4192085568" class="flex w-full items-center justify-center gap-2 rounded-full bg-amber py-3.5 text-base font-semibold text-white shadow-glow">
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      Call Zach — 419-208-5568
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
