@@ -69,10 +69,107 @@
 
     .hero-gradient {
       background:
-        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(232, 184, 74, 0.18), transparent 60%),
-        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(47, 74, 58, 0.12), transparent 55%),
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(232, 184, 74, 0.22), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(47, 74, 58, 0.14), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 90% 90%, rgba(158, 75, 47, 0.1), transparent 55%),
         linear-gradient(165deg, #f8f4ec 0%, #f0e6d8 45%, #f8f4ec 100%);
+      background-size: 140% 140%, 120% 120%, 100% 100%, 100% 100%;
+      animation: hero-gradient-shift 20s ease-in-out infinite;
     }
+
+    @keyframes hero-gradient-shift {
+      0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+      50% { background-position: 100% 50%, 50% 100%, 80% 20%, 0% 0%; }
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(64px);
+      pointer-events: none;
+      animation: orb-drift 16s ease-in-out infinite;
+    }
+
+    .hero-orb-1 {
+      right: -6rem;
+      top: 5rem;
+      height: 24rem;
+      width: 24rem;
+      background: rgba(232, 184, 74, 0.22);
+    }
+
+    .hero-orb-2 {
+      left: -4rem;
+      bottom: 0;
+      height: 18rem;
+      width: 18rem;
+      background: rgba(47, 74, 58, 0.14);
+      animation-delay: -6s;
+    }
+
+    .hero-orb-3 {
+      left: 40%;
+      top: 35%;
+      height: 14rem;
+      width: 14rem;
+      background: rgba(196, 122, 26, 0.1);
+      animation-delay: -10s;
+    }
+
+    @keyframes orb-drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-18px, 14px) scale(1.04); }
+      66% { transform: translate(14px, -10px) scale(0.96); }
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        -14deg,
+        transparent,
+        transparent 72px,
+        rgba(196, 122, 26, 0.04) 72px,
+        rgba(196, 122, 26, 0.04) 73px
+      );
+      background-size: 200% 200%;
+      animation: pattern-scroll 48s linear infinite;
+      mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
+    }
+
+    @keyframes pattern-scroll {
+      from { background-position: 0 0; }
+      to { background-position: 200% 200%; }
+    }
+
+    .hero-pill-dot {
+      animation: pill-pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pill-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.7; }
+    }
+
+    .hero-badge {
+      animation: badge-glow 4s ease-in-out infinite;
+    }
+
+    @keyframes badge-glow {
+      0%, 100% { box-shadow: 0 12px 40px -16px rgba(28, 23, 18, 0.25); }
+      50% { box-shadow: 0 16px 48px -12px rgba(196, 122, 26, 0.28); }
+    }
+
+    @keyframes float-photo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-photo-main { animation: float-photo 7s ease-in-out infinite; }
+    .hero-photo-secondary { animation: float-photo 8.5s ease-in-out infinite 0.6s; }
+    .hero-photo-accent { animation: float-photo 9s ease-in-out infinite 1.2s; }
 
     .img-frame {
       position: relative;
@@ -98,12 +195,148 @@
       to { transform: translateX(-50%); }
     }
 
+    .services-stage {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(28, 23, 18, 0.06) 0%, rgba(248, 244, 236, 0) 12%),
+        #f8f4ec;
+    }
+
+    .services-stage::before {
+      content: '';
+      position: absolute;
+      inset: -40% -20%;
+      background: repeating-linear-gradient(
+        -10deg,
+        transparent,
+        transparent 96px,
+        rgba(196, 122, 26, 0.035) 96px,
+        rgba(196, 122, 26, 0.035) 97px
+      );
+      animation: pattern-scroll 60s linear infinite;
+      pointer-events: none;
+    }
+
+    .services-watermark {
+      position: absolute;
+      inset: 8rem -10% auto -10%;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(4rem, 14vw, 11rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: rgba(28, 23, 18, 0.04);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      animation: watermark-drift 35s linear infinite;
+    }
+
+    @keyframes watermark-drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(-12%); }
+    }
+
+    .service-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(28, 23, 18, 0.1);
+      background: rgba(255, 255, 255, 0.75);
+      padding: 0.45rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3d2e22;
+      backdrop-filter: blur(8px);
+      transition: transform 0.35s var(--ease-out-expo), border-color 0.35s, background 0.35s, color 0.35s, box-shadow 0.35s;
+    }
+
+    .service-chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(196, 122, 26, 0.45);
+      background: #fff;
+      color: #c47a1a;
+      box-shadow: 0 10px 28px -18px rgba(196, 122, 26, 0.45);
+    }
+
+    .service-card {
+      position: relative;
+      border: 1px solid rgba(28, 23, 18, 0.06);
+      transition: transform 0.55s var(--ease-out-expo), box-shadow 0.55s var(--ease-out-expo), border-color 0.55s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto auto 0;
+      height: 4px;
+      width: 100%;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background: var(--card-accent, #c47a1a);
+      opacity: 0.85;
+      transition: height 0.45s var(--ease-out-expo), opacity 0.45s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 122, 26, 0.22);
+      box-shadow: 0 28px 70px -32px rgba(28, 23, 18, 0.35);
+    }
+
+    .service-card:hover::before {
+      height: 6px;
+      opacity: 1;
+    }
+
+    .service-card-index {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      display: flex;
+      height: 2rem;
+      width: 2rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--card-accent, #c47a1a);
+      box-shadow: 0 8px 20px -12px rgba(28, 23, 18, 0.35);
+    }
+
+    .service-card--hibachi { --card-accent: #9e4b2f; }
+    .service-card--trailer { --card-accent: #1c1712; }
+    .service-card--catering { --card-accent: #2f4a3a; }
+    .service-card--chef { --card-accent: #c47a1a; }
+    .service-card--photobooth { --card-accent: #6b4c9a; }
+    .service-card--dessert { --card-accent: #e8b84a; }
+
     .service-card:hover .service-img {
       transform: scale(1.06);
     }
 
     .service-img {
       transition: transform 0.7s var(--ease-out-expo);
+    }
+
+    .service-card h3 {
+      transition: color 0.35s ease;
+    }
+
+    .service-card:hover h3 {
+      color: var(--card-accent, #c47a1a);
     }
 
     .call-pulse {
@@ -265,7 +498,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine {
+      .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
+      .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
+      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-stage::before,
+      .services-watermark {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -300,13 +536,15 @@
 
   <!-- Hero -->
   <section class="hero-gradient relative overflow-hidden pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-28">
-    <div class="absolute -right-24 top-20 h-96 w-96 rounded-full bg-gold/20 blur-3xl"></div>
-    <div class="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-moss/10 blur-3xl"></div>
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
     <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
       <div class="reveal order-2 lg:order-1">
-        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber">
-          <span class="h-1.5 w-1.5 rounded-full bg-amber"></span>
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber backdrop-blur-sm">
+          <span class="hero-pill-dot h-1.5 w-1.5 rounded-full bg-amber"></span>
           Serving the 419
         </p>
         <h1 class="font-display text-[2.15rem] font-semibold leading-[1.08] tracking-tight text-ink min-[400px]:text-[2.4rem] sm:text-5xl lg:text-[3.6rem]">
@@ -390,7 +628,7 @@
   </section>
 
   <!-- Marquee -->
-  <div class="overflow-hidden border-y border-ink/8 bg-ink py-4 text-cream" aria-hidden="true">
+  <div class="overflow-hidden border-y border-ink/8 bg-gradient-to-r from-ink via-bark to-ink py-4 text-cream" aria-hidden="true">
     <div class="marquee-track flex w-max gap-10 whitespace-nowrap text-sm font-medium uppercase tracking-[0.25em]">
       <span>Home-style catering</span><span>·</span>
       <span>Backyard hibachi</span><span>·</span>
@@ -412,16 +650,27 @@
   </div>
 
   <!-- Services -->
-  <section id="services" class="py-16 sm:py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+  <section id="services" class="services-stage py-16 sm:py-20 lg:py-28">
+    <div class="services-watermark" aria-hidden="true">Hibachi · Trailer · Catering · Chef · Booth · Dessert ·</div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">What we do</p>
         <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">One call. A whole event handled.</h2>
         <p class="mt-4 text-lg text-bark/80">From an intimate birthday dinner to a wedding with a hundred hungry guests — Zach builds the menu, shows up, and takes the stress off your plate.</p>
       </div>
 
-      <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+      <nav class="service-chips reveal mt-8" aria-label="Service categories">
+        <a href="#service-hibachi" class="service-chip">Hibachi</a>
+        <a href="#service-trailer" class="service-chip">Food Trailer</a>
+        <a href="#service-catering" class="service-chip">Catering</a>
+        <a href="#service-chef" class="service-chip">In-Home Chef</a>
+        <a href="#service-photobooth" class="service-chip">Photobooth</a>
+        <a href="#service-dessert" class="service-chip">Dessert &amp; Extras</a>
+      </nav>
+
+      <div class="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
+        <article id="service-hibachi" class="service-card service-card--hibachi reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <span class="service-card-index" aria-hidden="true">01</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/18093593/pexels-photo-18093593.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Backyard grill cooking for a party" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
@@ -431,7 +680,8 @@
           </div>
         </article>
 
-        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-trailer" class="service-card service-card--trailer reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <span class="service-card-index" aria-hidden="true">02</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Black food trailer at a pop-up event" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
@@ -441,7 +691,8 @@
           </div>
         </article>
 
-        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-catering" class="service-card service-card--catering reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <span class="service-card-index" aria-hidden="true">03</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Home-style catering buffet spread" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
@@ -451,7 +702,8 @@
           </div>
         </article>
 
-        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-chef" class="service-card service-card--chef reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <span class="service-card-index" aria-hidden="true">04</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/3184195/pexels-photo-3184195.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Private chef plating a dinner course" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
@@ -461,7 +713,8 @@
           </div>
         </article>
 
-        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-photobooth" class="service-card service-card--photobooth reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <span class="service-card-index" aria-hidden="true">05</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Enclosed photobooth at a wedding reception" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
@@ -472,7 +725,8 @@
           </div>
         </article>
 
-        <article class="service-card reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-dessert" class="service-card service-card--dessert reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+          <span class="service-card-index" aria-hidden="true">06</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dessert table with pastries and sweets" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
@@ -689,6 +943,9 @@
       },
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
+    document.querySelectorAll('.service-card.reveal').forEach((el, index) => {
+      el.style.transitionDelay = `${index * 90}ms`;
+    });
     reveals.forEach((el) => observer.observe(el));
   </script>
 </body>
