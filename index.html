@@ -144,6 +144,107 @@
       to { background-position: 200% 200%; }
     }
 
+    .hero-steam {
+      position: absolute;
+      inset: auto 0 0;
+      height: 58%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 28%, black 82%, transparent 100%);
+      mask-image: linear-gradient(180deg, transparent 0%, black 28%, black 82%, transparent 100%);
+    }
+
+    .hero-heat-base {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 130%;
+      height: 26%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(ellipse 58% 100% at 50% 100%, rgba(196, 122, 26, 0.14), transparent 72%),
+        radial-gradient(ellipse 35% 80% at 32% 100%, rgba(232, 184, 74, 0.1), transparent 68%),
+        radial-gradient(ellipse 35% 80% at 68% 100%, rgba(158, 75, 47, 0.08), transparent 68%);
+      animation: heat-pulse 5.5s ease-in-out infinite;
+    }
+
+    @keyframes heat-pulse {
+      0%, 100% { opacity: 0.75; transform: translateX(-50%) scaleY(1); }
+      50% { opacity: 1; transform: translateX(-50%) scaleY(1.06); }
+    }
+
+    .hero-steam-wisp {
+      position: absolute;
+      bottom: -18%;
+      border-radius: 50%;
+      filter: blur(42px);
+      opacity: 0;
+      will-change: transform, opacity;
+      animation: steam-rise var(--steam-dur, 9s) ease-in-out infinite;
+      animation-delay: var(--steam-delay, 0s);
+    }
+
+    .hero-steam-wisp-1 {
+      left: 8%;
+      width: min(46vw, 22rem);
+      height: min(28vw, 14rem);
+      --steam-dur: 8.5s;
+      --steam-delay: 0s;
+      --steam-drift: 18px;
+      --steam-peak: 0.38;
+      background: radial-gradient(ellipse at 50% 80%, rgba(248, 244, 236, 0.85) 0%, rgba(232, 184, 74, 0.35) 42%, transparent 72%);
+    }
+
+    .hero-steam-wisp-2 {
+      left: 34%;
+      width: min(52vw, 26rem);
+      height: min(32vw, 16rem);
+      --steam-dur: 10s;
+      --steam-delay: -2.8s;
+      --steam-drift: -14px;
+      --steam-peak: 0.32;
+      background: radial-gradient(ellipse at 50% 75%, rgba(255, 250, 240, 0.8) 0%, rgba(196, 122, 26, 0.28) 45%, transparent 74%);
+    }
+
+    .hero-steam-wisp-3 {
+      left: 58%;
+      width: min(44vw, 21rem);
+      height: min(26vw, 13rem);
+      --steam-dur: 9.2s;
+      --steam-delay: -5.2s;
+      --steam-drift: 22px;
+      --steam-peak: 0.34;
+      background: radial-gradient(ellipse at 50% 78%, rgba(248, 244, 236, 0.82) 0%, rgba(158, 75, 47, 0.22) 40%, transparent 70%);
+    }
+
+    .hero-steam-wisp-4 {
+      left: 72%;
+      width: min(38vw, 18rem);
+      height: min(24vw, 12rem);
+      --steam-dur: 11s;
+      --steam-delay: -1.4s;
+      --steam-drift: -10px;
+      --steam-peak: 0.28;
+      background: radial-gradient(ellipse at 50% 80%, rgba(255, 248, 235, 0.75) 0%, rgba(232, 184, 74, 0.25) 48%, transparent 75%);
+    }
+
+    @keyframes steam-rise {
+      0% {
+        transform: translateY(0) translateX(0) scale(0.92);
+        opacity: 0;
+      }
+      12% { opacity: var(--steam-peak, 0.32); }
+      48% {
+        transform: translateY(-42%) translateX(var(--steam-drift, 12px)) scale(1.08);
+        opacity: calc(var(--steam-peak, 0.32) * 0.85);
+      }
+      100% {
+        transform: translateY(-88%) translateX(calc(var(--steam-drift, 12px) * -0.4)) scale(1.22);
+        opacity: 0;
+      }
+    }
+
     .hero-pill-dot {
       animation: pill-pulse 2.2s ease-in-out infinite;
     }
@@ -499,9 +600,9 @@
 
     @media (prefers-reduced-motion: reduce) {
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
-      .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
-      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-stage::before,
-      .services-watermark {
+      .hero-gradient, .hero-orb, .hero-pattern, .hero-steam-wisp, .hero-heat-base,
+      .hero-photo-main, .hero-photo-secondary, .hero-photo-accent, .hero-badge,
+      .hero-pill-dot, .services-stage::before, .services-watermark {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -540,8 +641,15 @@
     <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+    <div class="hero-steam" aria-hidden="true">
+      <div class="hero-heat-base"></div>
+      <div class="hero-steam-wisp hero-steam-wisp-1"></div>
+      <div class="hero-steam-wisp hero-steam-wisp-2"></div>
+      <div class="hero-steam-wisp hero-steam-wisp-3"></div>
+      <div class="hero-steam-wisp hero-steam-wisp-4"></div>
+    </div>
 
-    <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
       <div class="reveal order-2 lg:order-1">
         <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber/30 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber backdrop-blur-sm">
           <span class="hero-pill-dot h-1.5 w-1.5 rounded-full bg-amber"></span>
