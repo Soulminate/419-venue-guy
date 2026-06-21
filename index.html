@@ -468,38 +468,107 @@
     }
 
     .site-header {
-      background: linear-gradient(180deg, rgba(28, 23, 18, 0.97) 0%, rgba(45, 35, 26, 0.95) 100%);
-      border-bottom-color: rgba(232, 184, 74, 0.18);
-      box-shadow: 0 10px 40px -20px rgba(28, 23, 18, 0.45);
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(125deg, rgba(28, 23, 18, 0.98) 0%, rgba(61, 46, 34, 0.96) 42%, rgba(28, 23, 18, 0.98) 100%);
+      background-size: 220% 220%;
+      animation: header-bg-shift 14s ease-in-out infinite;
+      border-bottom: 1px solid rgba(232, 184, 74, 0.22);
+      box-shadow:
+        0 10px 36px -18px rgba(28, 23, 18, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
-    .header-logo {
-      display: block;
-      height: 3.35rem;
-      width: auto;
-      max-width: min(78vw, 18rem);
-      object-fit: contain;
-      filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.35));
-      transition: transform 0.25s var(--ease-out-expo), filter 0.25s ease;
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 70% 120% at 15% -20%, rgba(232, 184, 74, 0.14), transparent 55%);
+      z-index: 0;
     }
 
-    .group:hover .header-logo {
-      transform: scale(1.015);
-      filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.45));
+    .site-header::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(232, 184, 74, 0.15) 20%,
+        rgba(232, 184, 74, 0.85) 50%,
+        rgba(232, 184, 74, 0.15) 80%,
+        transparent 100%
+      );
+      background-size: 220% 100%;
+      animation: header-line-shine 5s ease-in-out infinite;
+      z-index: 0;
     }
 
-    @media (min-width: 640px) {
-      .header-logo {
-        height: 3.85rem;
-        max-width: 20rem;
-      }
+    .site-header > div {
+      position: relative;
+      z-index: 1;
     }
 
-    @media (min-width: 1024px) {
-      .header-logo {
-        height: 4.25rem;
-        max-width: 22rem;
-      }
+    @keyframes header-bg-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes header-line-shine {
+      0%, 100% { background-position: 0% 50%; opacity: 0.75; }
+      50% { background-position: 100% 50%; opacity: 1; }
+    }
+
+    .header-badge {
+      background: linear-gradient(145deg, #f0c45c 0%, #e8b84a 45%, #c47a1a 100%);
+      color: #1c1712;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 0 0 3px rgba(232, 184, 74, 0.22),
+        0 10px 28px -12px rgba(196, 122, 26, 0.65);
+      animation: badge-glow 3.5s ease-in-out infinite;
+      transition: transform 0.25s var(--ease-out-expo), box-shadow 0.25s ease;
+    }
+
+    .group:hover .header-badge {
+      transform: scale(1.04);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.28),
+        0 0 0 4px rgba(232, 184, 74, 0.32),
+        0 14px 32px -10px rgba(196, 122, 26, 0.75);
+    }
+
+    @keyframes badge-glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.08); }
+    }
+
+    .header-nav-link {
+      position: relative;
+    }
+
+    .header-nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.35rem;
+      height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, #e8b84a, transparent);
+      transform: scaleX(0);
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+
+    .header-nav-link:hover::after,
+    .header-nav-link:focus-visible::after {
+      transform: scaleX(1);
     }
 
     .hero-collage {
@@ -632,7 +701,8 @@
     @media (prefers-reduced-motion: reduce) {
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
-      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-bg, .service-detail {
+      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-bg, .service-detail,
+      .site-header, .site-header::after, .header-badge {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -649,24 +719,21 @@
 <body class="grain font-sans antialiased pb-20 sm:pb-0">
 
   <!-- Header -->
-  <header class="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 lg:gap-4 lg:px-8">
-      <a href="#" class="group flex min-w-0 shrink items-center" aria-label="419 Venue Guy — Fremont, Ohio">
-        <img
-          src="images/logo.png?v=5"
-          alt="419 Venue Guy — We Make Smiles Happen"
-          class="header-logo"
-          width="885"
-          height="399"
-          decoding="async"
-        />
+  <header class="site-header fixed inset-x-0 top-0 z-50 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:gap-4 sm:px-5 sm:py-4 lg:px-8">
+      <a href="#" class="group flex min-w-0 items-center gap-3 sm:gap-3.5" aria-label="419 Venue Guy — Fremont, Ohio">
+        <span class="header-badge flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-base font-bold tracking-tight sm:h-14 sm:w-14 sm:text-lg">419</span>
+        <div class="min-w-0 leading-tight">
+          <p class="truncate font-display text-xl font-bold tracking-tight text-cream sm:text-2xl">Venue Guy</p>
+          <p class="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-gold/80 sm:text-xs">Fremont · Ohio</p>
+        </div>
       </a>
       <nav class="hidden items-center gap-6 text-sm font-semibold text-cream/85 lg:gap-8 md:flex" aria-label="Main">
-        <a href="#services" class="transition hover:text-gold">Services</a>
-        <a href="#wtol" class="transition hover:text-gold">On TV</a>
-        <a href="#why" class="transition hover:text-gold">Why Us</a>
-        <a href="#proof" class="transition hover:text-gold">Reviews</a>
-        <a href="#gallery" class="transition hover:text-gold">Gallery</a>
+        <a href="#services" class="header-nav-link transition hover:text-gold">Services</a>
+        <a href="#wtol" class="header-nav-link transition hover:text-gold">On TV</a>
+        <a href="#why" class="header-nav-link transition hover:text-gold">Why Us</a>
+        <a href="#proof" class="header-nav-link transition hover:text-gold">Reviews</a>
+        <a href="#gallery" class="header-nav-link transition hover:text-gold">Gallery</a>
       </nav>
       <a href="tel:4192085568" class="hidden shrink-0 rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-ink shadow-lift transition hover:bg-amber sm:inline-flex">
         419-208-5568
