@@ -201,21 +201,16 @@
       isolation: isolate;
     }
 
-    .logo-blend {
-      mix-blend-mode: screen;
-    }
-
-    .services-logo-bg {
+    .services-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
-      background-image: url('images/logo.jpg');
-      background-size: min(92vw, 880px) auto;
-      background-position: center 48%;
+      background-image: url('images/food-trailer.jpg');
+      background-size: cover;
+      background-position: center 35%;
       background-attachment: fixed;
       background-repeat: no-repeat;
-      opacity: 0.34;
-      mix-blend-mode: screen;
+      transform: scale(1.02);
       pointer-events: none;
     }
 
@@ -224,9 +219,9 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(180deg, rgba(248, 244, 236, 0.9) 0%, rgba(248, 244, 236, 0.78) 45%, rgba(248, 244, 236, 0.88) 100%),
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 184, 74, 0.1), transparent 70%);
-      backdrop-filter: blur(1px);
+        linear-gradient(180deg, rgba(248, 244, 236, 0.94) 0%, rgba(248, 244, 236, 0.82) 45%, rgba(248, 244, 236, 0.9) 100%),
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 184, 74, 0.12), transparent 70%);
+      backdrop-filter: blur(2px);
       pointer-events: none;
     }
 
@@ -602,7 +597,7 @@
     @media (prefers-reduced-motion: reduce) {
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
-      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-logo-bg, .service-detail {
+      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-bg, .service-detail {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -621,14 +616,12 @@
   <!-- Header -->
   <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/8 bg-cream/90 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:gap-4 sm:px-5 sm:py-4 lg:px-8">
-      <a href="#" class="group flex min-w-0 items-center gap-2 sm:gap-3">
-        <img
-          src="images/logo.jpg"
-          alt="419 Venue Guy — Fremont, Ohio"
-          class="logo-blend h-9 w-auto max-w-[10rem] shrink-0 object-contain object-left transition group-hover:opacity-90 sm:h-11 sm:max-w-[12rem]"
-          width="320"
-          height="80"
-        />
+      <a href="#" class="group flex min-w-0 items-center gap-3 sm:gap-3.5">
+        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-cream font-display text-base font-bold tracking-tight shadow-lift sm:h-14 sm:w-14 sm:text-lg">419</span>
+        <div class="min-w-0 leading-tight">
+          <p class="truncate font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">Venue Guy</p>
+          <p class="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-bark/75 sm:text-xs">Fremont · Ohio</p>
+        </div>
       </a>
       <nav class="hidden items-center gap-6 text-sm font-semibold text-bark lg:gap-8 md:flex" aria-label="Main">
         <a href="#services" class="transition hover:text-amber">Services</a>
@@ -760,7 +753,7 @@
 
   <!-- Services -->
   <section id="services" class="services-stage py-16 sm:py-20 lg:py-28">
-    <div class="services-logo-bg" aria-hidden="true"></div>
+    <div class="services-bg" aria-hidden="true"></div>
     <div class="services-scrim" aria-hidden="true"></div>
     <div class="services-content mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
@@ -1101,22 +1094,10 @@
 
   <!-- Footer -->
   <footer class="border-t border-ink/8 py-10">
-    <div class="mx-auto max-w-7xl px-5 lg:px-8">
-      <div class="flex flex-col items-center gap-6">
-        <img
-          src="images/logo.jpg"
-          alt=""
-          class="logo-blend h-8 w-auto max-w-xs object-contain opacity-90 sm:h-9"
-          width="280"
-          height="70"
-          aria-hidden="true"
-        />
-        <div class="flex w-full flex-col items-center justify-between gap-4 text-center text-sm text-bark/70 sm:flex-row">
-          <p>© <span id="year"></span> 419 Venue Guy · Zach Beckman</p>
-          <p class="font-display italic text-ink">We make smiles happen!</p>
-          <a href="tel:4192085568" class="font-semibold text-amber hover:text-rust">419-208-5568</a>
-        </div>
-      </div>
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-center text-sm text-bark/70 sm:flex-row lg:px-8">
+      <p>© <span id="year"></span> 419 Venue Guy · Zach Beckman</p>
+      <p class="font-display italic text-ink">We specialize in smiles!</p>
+      <a href="tel:4192085568" class="font-semibold text-amber hover:text-rust">419-208-5568</a>
     </div>
   </footer>
 
