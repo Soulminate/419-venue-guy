@@ -706,11 +706,258 @@
       .hero-photo-accent { height: 14rem; }
     }
 
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .menu-tab {
+      border-radius: 9999px;
+      border: 1px solid rgba(28, 23, 18, 0.1);
+      background: rgba(255, 255, 255, 0.8);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #3d2e22;
+      transition: transform 0.35s var(--ease-out-expo), border-color 0.35s, background 0.35s, color 0.35s, box-shadow 0.35s;
+    }
+
+    .menu-tab:hover {
+      transform: translateY(-2px);
+      border-color: rgba(196, 122, 26, 0.4);
+      color: #c47a1a;
+    }
+
+    .menu-tab.is-active {
+      border-color: rgba(196, 122, 26, 0.55);
+      background: #1c1712;
+      color: #f8f4ec;
+      box-shadow: 0 12px 32px -18px rgba(28, 23, 18, 0.45);
+    }
+
+    .menu-panel {
+      display: none;
+      animation: menu-fade 0.45s var(--ease-out-expo);
+    }
+
+    .menu-panel.is-active {
+      display: block;
+    }
+
+    @keyframes menu-fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      border-radius: 1.25rem;
+      border: 1px solid rgba(28, 23, 18, 0.06);
+      background: rgba(255, 255, 255, 0.92);
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 16px 40px -28px rgba(28, 23, 18, 0.2);
+      transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 50px -24px rgba(28, 23, 18, 0.28);
+    }
+
+    .menu-item-body {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .menu-item-title {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1c1712;
+      line-height: 1.3;
+    }
+
+    .menu-item-desc {
+      margin-top: 0.35rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: rgba(61, 46, 34, 0.78);
+    }
+
+    .menu-price {
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background: rgba(232, 184, 74, 0.22);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #9e4b2f;
+      white-space: nowrap;
+    }
+
+    .menu-details {
+      margin-top: 0.5rem;
+    }
+
+    .menu-details summary {
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #c47a1a;
+      list-style: none;
+    }
+
+    .menu-details summary::-webkit-details-marker { display: none; }
+
+    .menu-details summary::after {
+      content: ' +';
+    }
+
+    .menu-details[open] summary::after {
+      content: ' −';
+    }
+
+    .menu-details p {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: rgba(61, 46, 34, 0.72);
+    }
+
+    .menu-footer {
+      border-radius: 1.5rem;
+      border: 1px solid rgba(28, 23, 18, 0.08);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 224, 208, 0.55));
+      padding: 1.5rem;
+    }
+
+    .experiences-stage {
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 20%, rgba(232, 184, 74, 0.14), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(47, 74, 58, 0.1), transparent 55%),
+        #f0e6d8;
+    }
+
+    .experience-card {
+      overflow: hidden;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(28, 23, 18, 0.06);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 24px 60px -28px rgba(28, 23, 18, 0.3);
+      transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 70px -28px rgba(28, 23, 18, 0.35);
+    }
+
+    .experience-card--featured {
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 1024px) {
+      .experience-card--featured {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .duration-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .duration-pill {
+      border-radius: 9999px;
+      border: 1px solid rgba(28, 23, 18, 0.12);
+      background: #f8f4ec;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #3d2e22;
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.3s var(--ease-out-expo);
+    }
+
+    .duration-pill:hover {
+      border-color: rgba(107, 76, 154, 0.45);
+      color: #6b4c9a;
+    }
+
+    .duration-pill.is-active {
+      border-color: #6b4c9a;
+      background: #6b4c9a;
+      color: #f8f4ec;
+      transform: translateY(-1px);
+    }
+
+    .photobooth-price {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1c1712;
+      transition: opacity 0.25s;
+    }
+
+    .photobooth-price.is-updating {
+      opacity: 0.45;
+    }
+
+    .addon-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      border-radius: 1rem;
+      border: 1px dashed rgba(28, 23, 18, 0.14);
+      background: rgba(255, 255, 255, 0.65);
+      padding: 1rem 1.1rem;
+      transition: border-color 0.35s, background 0.35s;
+    }
+
+    .addon-chip:hover {
+      border-color: rgba(196, 122, 26, 0.35);
+      background: #fff;
+    }
+
+    .philosophy-quote {
+      position: relative;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(232, 184, 74, 0.35);
+      background: linear-gradient(145deg, rgba(28, 23, 18, 0.97), rgba(61, 46, 34, 0.92));
+      padding: 2rem 1.75rem;
+      color: #f8f4ec;
+    }
+
+    .philosophy-quote::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto auto 0;
+      height: 4px;
+      width: 100%;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background: linear-gradient(90deg, #e8b84a, #c47a1a);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
       .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-bg, .service-detail,
-      .site-header, .site-header::after, .header-badge {
+      .menu-panel, .site-header, .site-header::after, .header-badge {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -739,6 +986,8 @@
       <nav class="hidden items-center gap-6 text-sm font-semibold text-cream/85 lg:gap-8 md:flex" aria-label="Main">
         <a href="#services" class="header-nav-link transition hover:text-gold">Services</a>
         <a href="#wtol" class="header-nav-link transition hover:text-gold">On TV</a>
+        <a href="#menu" class="header-nav-link transition hover:text-gold">Menu</a>
+        <a href="#experiences" class="header-nav-link transition hover:text-gold">Experiences</a>
         <a href="#why" class="header-nav-link transition hover:text-gold">Why Us</a>
         <a href="#proof" class="header-nav-link transition hover:text-gold">Reviews</a>
         <a href="#gallery" class="header-nav-link transition hover:text-gold">Gallery</a>
@@ -1028,6 +1277,283 @@
     </div>
   </section>
 
+  <!-- Menu -->
+  <section id="menu" class="bg-cream py-16 sm:py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">Menu &amp; packages</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">Build the spread.<br />We'll handle the rest.</h2>
+        <p class="mt-4 text-lg text-bark/80">Priced per person · custom menus welcome · bundle packages for better pricing.</p>
+      </div>
+
+      <div class="menu-tabs reveal mt-10" role="tablist" aria-label="Menu categories">
+        <button type="button" class="menu-tab is-active" role="tab" aria-selected="true" aria-controls="menu-panel-appetizers" id="menu-tab-appetizers" data-menu-tab="appetizers">Appetizers</button>
+        <button type="button" class="menu-tab" role="tab" aria-selected="false" aria-controls="menu-panel-mains" id="menu-tab-mains" data-menu-tab="mains">Main courses</button>
+        <button type="button" class="menu-tab" role="tab" aria-selected="false" aria-controls="menu-panel-bars" id="menu-tab-bars" data-menu-tab="bars">Bars &amp; bowls</button>
+        <button type="button" class="menu-tab" role="tab" aria-selected="false" aria-controls="menu-panel-desserts" id="menu-tab-desserts" data-menu-tab="desserts">Desserts</button>
+      </div>
+
+      <div class="mt-8">
+        <div id="menu-panel-appetizers" class="menu-panel is-active reveal" role="tabpanel" aria-labelledby="menu-tab-appetizers" data-menu-panel="appetizers">
+          <p class="mb-4 text-center text-sm text-bark/70">We can accommodate other needs — just ask.</p>
+          <div class="menu-grid">
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Charcuterie</h3>
+                <p class="menu-item-desc">Variety of meats, cheeses, fruits, and nuts.</p>
+              </div>
+              <span class="menu-price">$8.50+</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Meatballs, franks, dips</h3>
+                <p class="menu-item-desc">Meatballs, franks, buffalo dip, spinach dip.</p>
+              </div>
+              <span class="menu-price">$6–8</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Bruschetta toast points</h3>
+              </div>
+              <span class="menu-price">$6</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Fruit or veggie tray</h3>
+              </div>
+              <span class="menu-price">Ask</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Sausage beer cheese dip</h3>
+              </div>
+              <span class="menu-price">$6.50</span>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-panel-mains" class="menu-panel reveal" role="tabpanel" aria-labelledby="menu-tab-mains" data-menu-panel="mains" hidden>
+          <div class="menu-grid">
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Home style</h3>
+                <details class="menu-details">
+                  <summary>What's included</summary>
+                  <p>Choose up to 3 meats, 2 hot sides, and a cold side. Served with bread and salad.</p>
+                </details>
+              </div>
+              <span class="menu-price">$14 / $18 / $22</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Italian</h3>
+                <p class="menu-item-desc">Chicken alfredo, spaghetti &amp; meatballs, lasagna, chicken marsala, chicken parm — with salad and bread.</p>
+              </div>
+              <span class="menu-price">$14–20</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">BBQ</h3>
+                <details class="menu-details">
+                  <summary>What's included</summary>
+                  <p>Choose up to 3 meats, 2 hot sides, and a cold side.</p>
+                </details>
+              </div>
+              <span class="menu-price">$15–24</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Caprese chicken</h3>
+                <p class="menu-item-desc">Served with melt-away potatoes, vegetable, and salad.</p>
+              </div>
+              <span class="menu-price">$18</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Italian BBQ chicken</h3>
+                <p class="menu-item-desc">Roasted potatoes, vegetable, and salad. Ask about toppings.</p>
+              </div>
+              <span class="menu-price">$17</span>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-panel-bars" class="menu-panel reveal" role="tabpanel" aria-labelledby="menu-tab-bars" data-menu-panel="bars" hidden>
+          <div class="menu-grid">
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Soup &amp; salad</h3>
+                <p class="menu-item-desc">Choose up to 3 soups, 2 salads, and assorted breads. Ask about adding sandwiches.</p>
+              </div>
+              <span class="menu-price">$15</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Taco bar</h3>
+                <p class="menu-item-desc">Chicken and beef, rice and beans, chips and salsa/guac, all the toppings, hard and soft shells.</p>
+              </div>
+              <span class="menu-price">$14.50</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Mac &amp; cheese bar</h3>
+                <p class="menu-item-desc">Top it with chicken, pork, shrimp, variety of sauces, green onions, bacon bits, and more.</p>
+              </div>
+              <span class="menu-price">$14+</span>
+            </article>
+          </div>
+        </div>
+
+        <div id="menu-panel-desserts" class="menu-panel reveal" role="tabpanel" aria-labelledby="menu-tab-desserts" data-menu-panel="desserts" hidden>
+          <p class="mb-4 text-center text-sm text-bark/70">We can accommodate other needs — just ask.</p>
+          <div class="menu-grid">
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">419 Whips</h3>
+                <p class="menu-item-desc">Reese's, lemon blueberry with white chocolate, caramel apple, chocolate.</p>
+              </div>
+              <span class="menu-price">$4</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Cheesecake bites</h3>
+              </div>
+              <span class="menu-price">$3</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Macaroons</h3>
+              </div>
+              <span class="menu-price">$4</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Turtle brownies</h3>
+              </div>
+              <span class="menu-price">$3</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Cookies</h3>
+              </div>
+              <span class="menu-price">$2.50</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Mini pies</h3>
+              </div>
+              <span class="menu-price">$4</span>
+            </article>
+            <article class="menu-item">
+              <div class="menu-item-body">
+                <h3 class="menu-item-title">Crisps &amp; cobblers</h3>
+              </div>
+              <span class="menu-price">$3.50</span>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-footer reveal mt-10 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div>
+          <p class="font-display text-lg font-semibold text-ink">This is a base model — Zach builds to your standards.</p>
+          <p class="mt-1 text-sm text-bark/75">Bundle packages make better pricing. Traveling hibachi, photobooth, in-home chef &amp; more below.</p>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="downloads/419-venue-guy-menu.pdf" class="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-white px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-amber/40 hover:text-amber" download>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download menu (PDF)
+          </a>
+          <a href="tel:4192085568" class="inline-flex items-center gap-2 rounded-full bg-amber px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-rust">Call for a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences -->
+  <section id="experiences" class="experiences-stage py-16 sm:py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">Beyond the buffet</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">The fun stuff — cooked, served, and printed on-site.</h2>
+        <p class="mt-4 text-lg text-bark/80">Hibachi in the backyard, chef nights at home, photobooth memories, and carts your guests will talk about.</p>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-2">
+        <article class="experience-card reveal overflow-hidden">
+          <div class="img-frame h-48 overflow-hidden sm:h-52">
+            <img src="images/hero-hibachi-event.jpg" alt="Backyard hibachi party with guests under a tent" class="h-full w-full object-cover object-center" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">Traveling Hibachi</h3>
+            <p class="mt-2 text-bark/80">We'll come to your backyard and cook on-site for you and your friends. Fun, personal, and a little comical — in the best way. Parties of 12 or more.</p>
+            <p class="mt-4 font-display text-xl font-semibold text-amber">Call for quote</p>
+            <a href="tel:4192085568" class="mt-3 inline-flex text-sm font-semibold text-ink underline decoration-amber/50 underline-offset-4 transition hover:text-amber">Let's get you on the books →</a>
+          </div>
+        </article>
+
+        <article class="experience-card reveal overflow-hidden">
+          <div class="img-frame h-48 overflow-hidden sm:h-52">
+            <img src="images/in-home-chef-table.jpg" alt="In-home chef dinner table setting" class="h-full w-full object-cover object-center" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-semibold text-ink">In-Home Chef Experiences</h3>
+            <p class="mt-2 text-bark/80">Chef Zach Beckman comes to your home, builds the menu of your dreams, and cooks a chef-inspired meal for you and your loved ones. Let's make a memorable moment.</p>
+            <p class="mt-4 font-display text-xl font-semibold text-amber">Call for quote</p>
+            <a href="tel:4192085568" class="mt-3 inline-flex text-sm font-semibold text-ink underline decoration-amber/50 underline-offset-4 transition hover:text-amber">Plan your dinner →</a>
+          </div>
+        </article>
+
+        <article class="experience-card experience-card--featured reveal overflow-hidden">
+          <div class="img-frame h-48 overflow-hidden lg:h-full lg:min-h-[18rem]">
+            <img src="images/photobooth-event.jpg" alt="419 Venue Guy photobooth at an event" class="h-full w-full object-cover object-center" loading="lazy" />
+          </div>
+          <div class="flex flex-col justify-center p-6 lg:p-8">
+            <h3 class="font-display text-2xl font-semibold text-ink">Photobooth Rental</h3>
+            <p class="mt-2 text-bark/80">We print your guests' pictures immediately so they can take them home — with your custom phrase printed at the bottom.</p>
+            <div class="duration-picker mt-5" role="group" aria-label="Photobooth duration">
+              <button type="button" class="duration-pill is-active" data-hours="2" data-price="350" aria-pressed="true">2 hours</button>
+              <button type="button" class="duration-pill" data-hours="3" data-price="500" aria-pressed="false">3 hours</button>
+              <button type="button" class="duration-pill" data-hours="5" data-price="650" aria-pressed="false">5 hours</button>
+            </div>
+            <p class="mt-4 text-sm font-semibold uppercase tracking-widest text-bark/60">Starting at</p>
+            <p class="photobooth-price" id="photobooth-price" aria-live="polite">$350</p>
+            <a href="tel:4192085568" class="mt-4 inline-flex w-fit rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-bark">Book photobooth</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="reveal mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="addon-chip">
+          <p class="font-semibold text-ink">On-site omelet bar</p>
+          <p class="text-sm text-bark/75">Call for quote</p>
+        </div>
+        <div class="addon-chip">
+          <p class="font-semibold text-ink">Dessert cart rental</p>
+          <p class="text-sm text-bark/75">Call for quote</p>
+        </div>
+        <div class="addon-chip">
+          <p class="font-semibold text-ink">Cannoli cart</p>
+          <p class="text-sm text-bark/75">Call for quote</p>
+        </div>
+        <div class="addon-chip">
+          <p class="font-semibold text-ink">Food trailer nights</p>
+          <p class="text-sm text-bark/75">Call for quote</p>
+        </div>
+      </div>
+
+      <blockquote class="philosophy-quote reveal mt-10 font-display text-lg leading-relaxed sm:text-xl">
+        Honestly, catering is a luxury — not just food on a plate. It's culinary artistry, attention to detail, and hospitality that turns an ordinary gathering into something your guests feel valued at. If you're booking through 419 Venue Guy, you're getting the best Zach can bring.
+      </blockquote>
+
+      <div class="reveal mt-8 text-center">
+        <a href="tel:4192085568" class="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-ink shadow-lift transition hover:bg-amber">
+          Bundle packages = better pricing — call Zach
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Why -->
   <section id="why" class="bg-ink py-16 text-cream sm:py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
@@ -1245,6 +1771,48 @@
       el.style.transitionDelay = `${index * 90}ms`;
     });
     reveals.forEach((el) => observer.observe(el));
+
+    const menuTabs = document.querySelectorAll('[data-menu-tab]');
+    const menuPanels = document.querySelectorAll('[data-menu-panel]');
+
+    menuTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.menuTab;
+
+        menuTabs.forEach((btn) => {
+          const isActive = btn.dataset.menuTab === target;
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        menuPanels.forEach((panel) => {
+          const isActive = panel.dataset.menuPanel === target;
+          panel.classList.toggle('is-active', isActive);
+          panel.hidden = !isActive;
+        });
+      });
+    });
+
+    const durationPills = document.querySelectorAll('.duration-pill');
+    const photoboothPrice = document.getElementById('photobooth-price');
+
+    durationPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        durationPills.forEach((btn) => {
+          const isActive = btn === pill;
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        if (photoboothPrice) {
+          photoboothPrice.classList.add('is-updating');
+          window.setTimeout(() => {
+            photoboothPrice.textContent = `$${Number(pill.dataset.price).toLocaleString()}`;
+            photoboothPrice.classList.remove('is-updating');
+          }, 120);
+        }
+      });
+    });
   </script>
 </body>
 </html>
