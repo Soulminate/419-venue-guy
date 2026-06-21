@@ -198,44 +198,36 @@
     .services-stage {
       position: relative;
       overflow: hidden;
+      isolation: isolate;
+    }
+
+    .services-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url('images/food-trailer.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      transform: scale(1.02);
+      pointer-events: none;
+    }
+
+    .services-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
       background:
-        linear-gradient(180deg, rgba(28, 23, 18, 0.06) 0%, rgba(248, 244, 236, 0) 12%),
-        #f8f4ec;
-    }
-
-    .services-stage::before {
-      content: '';
-      position: absolute;
-      inset: -40% -20%;
-      background: repeating-linear-gradient(
-        -10deg,
-        transparent,
-        transparent 96px,
-        rgba(196, 122, 26, 0.035) 96px,
-        rgba(196, 122, 26, 0.035) 97px
-      );
-      animation: pattern-scroll 60s linear infinite;
+        linear-gradient(180deg, rgba(248, 244, 236, 0.94) 0%, rgba(248, 244, 236, 0.82) 45%, rgba(248, 244, 236, 0.9) 100%),
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 184, 74, 0.12), transparent 70%);
+      backdrop-filter: blur(2px);
       pointer-events: none;
     }
 
-    .services-watermark {
-      position: absolute;
-      inset: 8rem -10% auto -10%;
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(4rem, 14vw, 11rem);
-      font-weight: 700;
-      line-height: 0.9;
-      letter-spacing: -0.04em;
-      color: rgba(28, 23, 18, 0.04);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      animation: watermark-drift 35s linear infinite;
-    }
-
-    @keyframes watermark-drift {
-      from { transform: translateX(0); }
-      to { transform: translateX(-12%); }
+    .services-content {
+      position: relative;
+      z-index: 2;
     }
 
     .service-chips {
@@ -337,6 +329,66 @@
 
     .service-card:hover h3 {
       color: var(--card-accent, #c47a1a);
+    }
+
+    .service-body {
+      position: relative;
+    }
+
+    .service-summary {
+      transition: color 0.35s ease;
+    }
+
+    .service-detail {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.55s var(--ease-out-expo),
+        opacity 0.4s ease,
+        margin-top 0.4s ease;
+    }
+
+    .service-detail p {
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(28, 23, 18, 0.08);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(61, 46, 34, 0.82);
+    }
+
+    .service-card:hover .service-detail,
+    .service-card:focus-within .service-detail {
+      max-height: 10rem;
+      opacity: 1;
+      margin-top: 0.25rem;
+    }
+
+    .service-hover-hint {
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(196, 122, 26, 0.55);
+      transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    .service-card:hover .service-hover-hint,
+    .service-card:focus-within .service-hover-hint {
+      opacity: 0;
+    }
+
+    @media (hover: none) {
+      .service-detail {
+        max-height: none;
+        opacity: 1;
+        margin-top: 0.25rem;
+      }
+
+      .service-hover-hint {
+        display: none;
+      }
     }
 
     .call-pulse {
@@ -500,12 +552,16 @@
     @media (prefers-reduced-motion: reduce) {
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
-      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-stage::before,
-      .services-watermark {
+      .hero-photo-accent, .hero-badge, .hero-pill-dot, .services-bg, .service-detail {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
+      }
+
+      .service-detail {
+        max-height: none !important;
+        margin-top: 0.25rem !important;
       }
     }
   </style>
@@ -636,7 +692,7 @@
       <span>Photobooth rental</span><span>·</span>
       <span>Weddings & graduations</span><span>·</span>
       <span>In-home chef dinners</span><span>·</span>
-      <span>Dessert & donut walls</span><span>·</span>
+      <span>Dessert carts & extras</span><span>·</span>
       <span>Fremont · Tiffin · Toledo · the 419</span><span>·</span>
       <span>Home-style catering</span><span>·</span>
       <span>Backyard hibachi</span><span>·</span>
@@ -644,15 +700,16 @@
       <span>Photobooth rental</span><span>·</span>
       <span>Weddings & graduations</span><span>·</span>
       <span>In-home chef dinners</span><span>·</span>
-      <span>Dessert & donut walls</span><span>·</span>
+      <span>Dessert carts & extras</span><span>·</span>
       <span>Fremont · Tiffin · Toledo · the 419</span><span>·</span>
     </div>
   </div>
 
   <!-- Services -->
   <section id="services" class="services-stage py-16 sm:py-20 lg:py-28">
-    <div class="services-watermark" aria-hidden="true">Hibachi · Trailer · Catering · Chef · Booth · Dessert ·</div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+    <div class="services-bg" aria-hidden="true"></div>
+    <div class="services-scrim" aria-hidden="true"></div>
+    <div class="services-content mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">What we do</p>
         <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">One call. A whole event handled.</h2>
@@ -669,70 +726,94 @@
       </nav>
 
       <div class="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
-        <article id="service-hibachi" class="service-card service-card--hibachi reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-hibachi" class="service-card service-card--hibachi reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">01</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/18093593/pexels-photo-18093593.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Backyard grill cooking for a party" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-6">
+          <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Backyard Hibachi</h3>
-            <p class="mt-2 text-bark/80">Cooked right in front of your guests. Fun, personal, and a little comical — in the best way. Parties of 12 or more.</p>
+            <p class="service-summary mt-2 text-bark/80">Cooked right in front of your guests. Fun, personal, and a little comical — in the best way. Parties of 12 or more.</p>
+            <p class="service-hover-hint">Hover for details</p>
+            <div class="service-detail">
+              <p>Zach rolls up with the grill, cooks fresh in your yard, and keeps the show entertaining. Perfect for birthdays, reunions, and any party where you want the food to be part of the fun — not hidden in a kitchen.</p>
+            </div>
           </div>
         </article>
 
-        <article id="service-trailer" class="service-card service-card--trailer reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-trailer" class="service-card service-card--trailer reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">02</span>
           <div class="img-frame h-52 overflow-hidden">
-            <img src="https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Black food trailer at a pop-up event" class="service-img h-full w-full object-cover" loading="lazy" />
+            <img src="images/food-trailer.jpg" alt="419 Venue Guy black food trailer at a pop-up event in Fremont, Ohio" class="service-img h-full w-full object-cover object-center" loading="lazy" />
           </div>
-          <div class="p-6">
+          <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Food Trailer</h3>
-            <p class="mt-2 text-bark/80">Pop-up nights, festivals, and private events. The trailer brings the energy — and the lines (sold-out nights happen).</p>
+            <p class="service-summary mt-2 text-bark/80">Pop-up nights, festivals, and private events. The trailer brings the energy — and the lines (sold-out nights happen).</p>
+            <p class="service-hover-hint">Hover for details</p>
+            <div class="service-detail">
+              <p>The black 419 Venue Guy trailer is hard to miss — branded, mobile, and built for busy nights. Zach handles pop-ups, parking-lot events, and private bookings across the 419. Book early on popular nights.</p>
+            </div>
           </div>
         </article>
 
-        <article id="service-catering" class="service-card service-card--catering reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-catering" class="service-card service-card--catering reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">03</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Home-style catering buffet spread" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-6">
+          <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Home-Style Catering</h3>
-            <p class="mt-2 text-bark/80">BBQ, pasta, taco bars, buffets, and stations. American comfort food with real kitchen craft — not cafeteria trays.</p>
+            <p class="service-summary mt-2 text-bark/80">BBQ, pasta, taco bars, buffets, and stations. American comfort food with real kitchen craft — not cafeteria trays.</p>
+            <p class="service-hover-hint">Hover for details</p>
+            <div class="service-detail">
+              <p>Weddings, graduations, corporate lunches, and family gatherings — Zach builds menus around what your crowd actually eats. Buffets, plated dinners, taco bars, BBQ spreads, and more. Portions are generous and the setup is handled.</p>
+            </div>
           </div>
         </article>
 
-        <article id="service-chef" class="service-card service-card--chef reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-chef" class="service-card service-card--chef reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">04</span>
           <div class="img-frame h-52 overflow-hidden">
             <img src="https://images.pexels.com/photos/3184195/pexels-photo-3184195.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Private chef plating a dinner course" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-6">
+          <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">In-Home Chef</h3>
-            <p class="mt-2 text-bark/80">A private chef dinner in your kitchen. Birthdays, anniversaries, or any night you want to feel like the guest of honor.</p>
+            <p class="service-summary mt-2 text-bark/80">A private chef dinner in your kitchen. Birthdays, anniversaries, or any night you want to feel like the guest of honor.</p>
+            <p class="service-hover-hint">Hover for details</p>
+            <div class="service-detail">
+              <p>Zach comes to your home, cooks a full meal in your kitchen, and lets you enjoy the evening without lifting a finger. Great for intimate celebrations, date nights, or surprising someone special.</p>
+            </div>
           </div>
         </article>
 
-        <article id="service-photobooth" class="service-card service-card--photobooth reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-photobooth" class="service-card service-card--photobooth reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">05</span>
           <div class="img-frame h-52 overflow-hidden">
-            <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Enclosed photobooth at a wedding reception" class="service-img h-full w-full object-cover" loading="lazy" />
+            <img src="images/photobooth.jpg" alt="Heart-themed photobooth setup at a wedding reception" class="service-img h-full w-full object-cover object-center" loading="lazy" />
           </div>
-          <div class="p-6">
+          <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Photobooth</h3>
-            <p class="mt-2 text-bark/80">Add something fun that guests actually use. Pair it with catering for weddings, grad parties, and reunions.</p>
+            <p class="service-summary mt-2 text-bark/80">Add something fun that guests actually use. Pair it with catering for weddings, grad parties, and reunions.</p>
+            <p class="service-hover-hint">Hover for details</p>
+            <div class="service-detail">
+              <p>A full photobooth setup with backdrop, props, and prints guests take home. Bundle it with catering for one less vendor to coordinate. Call for availability and pricing.</p>
+            </div>
             <p class="mt-3 text-sm font-semibold text-amber">Call for quote →</p>
           </div>
         </article>
 
-        <article id="service-dessert" class="service-card service-card--dessert reveal group overflow-hidden rounded-3xl bg-white shadow-card">
+        <article id="service-dessert" class="service-card service-card--dessert reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">06</span>
           <div class="img-frame h-52 overflow-hidden">
-            <img src="https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dessert table with pastries and sweets" class="service-img h-full w-full object-cover" loading="lazy" />
+            <img src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/434167204-391975930439699-3906495660105222184-n_51_2181355-171276806029371.jpeg" alt="Crème brûlée dessert by 419 Venue Guy" class="service-img h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="p-6">
+          <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Dessert &amp; Extras</h3>
-            <p class="mt-2 text-bark/80">Donut walls, dessert carts, cannoli carts, and growing event packages — sound, tents, and more as you need them.</p>
+            <p class="service-summary mt-2 text-bark/80">Dessert carts, cannoli carts, and growing event packages — sound, tents, and more as you need them.</p>
+            <p class="service-hover-hint">Hover for details</p>
+            <div class="service-detail">
+              <p>Sweet finishes and add-ons for any event — dessert displays, specialty carts, and extras like sound and tents as packages grow. Ask Zach what's available for your date.</p>
+            </div>
             <p class="mt-3 text-sm font-semibold text-amber">Call for quote →</p>
           </div>
         </article>
@@ -860,12 +941,12 @@
       </div>
 
       <div class="mt-8 columns-1 gap-4 min-[480px]:columns-2 md:mt-10 md:columns-3 lg:columns-4">
-        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/434167204-391975930439699-3906495660105222184-n_51_2181355-171276806029371.jpeg" alt="Crème brûlée dessert" loading="lazy" />
         <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/j_51_2181355-171283094721657.jpeg" alt="Party table setup" loading="lazy" />
         <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://img5.foodbevg.com/117/579/1017948211175798.jpg" alt="Graduation catering spread" loading="lazy" />
         <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/429915797-374468282190464-836538_51_2181355-171283094546965.jpeg" alt="Catered chicken tray" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="images/gallery-event.jpg" alt="419 Venue Guy food trailer at an event" loading="lazy" />
         <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://images.pexels.com/photos/128420/pexels-photo-128420.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Chef cooking on a flat-top grill" loading="lazy" />
-        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="https://cdn0.weddingwire.com/vendor/553181/3_2/960/jpg/436855380-401147162855909-4117752038085461298-n_51_2181355-171276808892608.jpeg" alt="Donut wall display" loading="lazy" />
+        <img class="reveal mb-4 w-full rounded-2xl shadow-lift" src="images/photobooth.jpg" alt="Photobooth setup at a wedding" loading="lazy" />
       </div>
     </div>
   </section>
