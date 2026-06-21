@@ -467,6 +467,34 @@
       50% { opacity: 0.88; transform: scale(1.04); }
     }
 
+    .header-logo {
+      height: 3.1rem;
+      width: auto;
+      max-width: min(74vw, 17.5rem);
+      object-fit: contain;
+      filter: drop-shadow(0 2px 10px rgba(28, 23, 18, 0.12));
+      transition: transform 0.25s var(--ease-out-expo), filter 0.25s ease;
+    }
+
+    .group:hover .header-logo {
+      transform: scale(1.02);
+      filter: drop-shadow(0 4px 14px rgba(28, 23, 18, 0.18));
+    }
+
+    @media (min-width: 640px) {
+      .header-logo {
+        height: 3.55rem;
+        max-width: 19rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .header-logo {
+        height: 3.85rem;
+        max-width: 20rem;
+      }
+    }
+
     .hero-collage {
       display: grid;
       gap: 0.75rem;
@@ -616,12 +644,15 @@
   <!-- Header -->
   <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/8 bg-cream/90 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:gap-4 sm:px-5 sm:py-4 lg:px-8">
-      <a href="#" class="group flex min-w-0 items-center gap-3 sm:gap-3.5">
-        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-cream font-display text-base font-bold tracking-tight shadow-lift sm:h-14 sm:w-14 sm:text-lg">419</span>
-        <div class="min-w-0 leading-tight">
-          <p class="truncate font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">Venue Guy</p>
-          <p class="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-bark/75 sm:text-xs">Fremont · Ohio</p>
-        </div>
+      <a href="#" class="group flex min-w-0 shrink items-center" aria-label="419 Venue Guy — Fremont, Ohio">
+        <img
+          src="images/logo.png"
+          alt="419 Venue Guy — We Make Smiles Happen"
+          class="header-logo"
+          width="640"
+          height="408"
+          decoding="async"
+        />
       </a>
       <nav class="hidden items-center gap-6 text-sm font-semibold text-bark lg:gap-8 md:flex" aria-label="Main">
         <a href="#services" class="transition hover:text-amber">Services</a>
@@ -775,7 +806,7 @@
         <article id="service-hibachi" class="service-card service-card--hibachi reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">01</span>
           <div class="img-frame h-52 overflow-hidden">
-            <img src="images/hibachi-wtol.jpg" alt="Chef Zach Beckman cooking hibachi outdoors on a portable grill" class="service-img h-full w-full object-cover object-[center_35%]" loading="lazy" />
+            <img src="images/hibachi-wtol.jpg" alt="Chef Zach Beckman cooking hibachi outdoors on a portable grill" class="service-img h-full w-full object-cover object-center" loading="lazy" />
           </div>
           <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Backyard Hibachi</h3>
