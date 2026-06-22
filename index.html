@@ -544,12 +544,18 @@
       object-fit: cover;
     }
 
-    .facebook-stat {
+    .facebook-stat,
+    .wtol-stat {
       min-width: 10.5rem;
     }
 
-    .facebook-stat:hover .facebook-stat-icon {
+    .facebook-stat:hover .facebook-stat-icon,
+    .wtol-stat:hover .wtol-stat-icon {
       transform: scale(1.08);
+    }
+
+    .wtol-stat-icon {
+      transition: transform 0.35s var(--ease-out-expo);
     }
 
     .hero-photo-main {
@@ -827,9 +833,24 @@
     }
 
     .experience-img--hibachi {
-      object-position: 50% 32%;
-      transform: scale(1.12);
-      transform-origin: 50% 30%;
+      object-position: 50% 58%;
+      transform: scale(1.08);
+      transform-origin: 50% 55%;
+    }
+
+    .experience-img--photobooth-photo {
+      object-position: 50% 42%;
+      transform: scale(1.04);
+    }
+
+    .experience-img-frame--tall {
+      height: 14rem;
+    }
+
+    @media (min-width: 640px) {
+      .experience-img-frame--tall {
+        height: 16.5rem;
+      }
     }
 
     .experience-img--chef {
@@ -948,6 +969,16 @@
       background: linear-gradient(90deg, #e8b84a, #c47a1a);
     }
 
+    .philosophy-quote strong {
+      color: #e8b84a;
+      font-weight: 600;
+    }
+
+    .philosophy-quote em {
+      color: rgba(248, 244, 236, 0.88);
+      font-style: italic;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
@@ -1051,10 +1082,14 @@
                 <p class="text-sm font-semibold text-bark/80">Follow on Facebook →</p>
               </span>
             </a>
-            <div class="hidden h-10 w-px bg-ink/10 sm:block"></div>
-            <a href="#wtol" class="group transition hover:opacity-90">
-              <p class="font-display text-2xl font-semibold text-ink group-hover:text-amber">WTOL 11</p>
-              <p class="text-sm text-bark/70">Watch the TV feature →</p>
+            <a href="#wtol" class="wtol-stat group inline-flex items-center gap-4 rounded-2xl border border-amber/30 bg-gradient-to-br from-white via-white to-gold/20 px-5 py-4 shadow-lift transition hover:border-amber/55 hover:shadow-glow">
+              <span class="wtol-stat-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-gold shadow-md transition">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+              </span>
+              <span>
+                <p class="font-display text-2xl font-semibold text-ink group-hover:text-amber">WTOL 11</p>
+                <p class="text-sm font-semibold text-bark/80">Watch the TV feature →</p>
+              </span>
             </a>
           </div>
         </div>
@@ -1183,7 +1218,7 @@
         <article id="service-chef" class="service-card service-card--chef reveal group overflow-hidden rounded-3xl bg-white/95 shadow-card backdrop-blur-sm" tabindex="0">
           <span class="service-card-index" aria-hidden="true">04</span>
           <div class="img-frame relative h-52 overflow-hidden">
-            <img src="images/in-home-chef-porch.jpg" alt="Outdoor porch dining table beautifully set for an in-home chef dinner by 419 Venue Guy" class="service-img h-full w-full object-cover object-center" loading="lazy" />
+            <img src="images/in-home-chef-dining.jpg" alt="Elegantly set dining table for an in-home chef dinner by 419 Venue Guy" class="service-img h-full w-full object-cover object-center" loading="lazy" />
             <span class="img-credit" aria-label="Photo by 419 Venue Guy">419 Venue Guy</span>
           </div>
           <div class="service-body p-6">
@@ -1476,7 +1511,7 @@
       <div class="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-2">
         <article class="experience-card experience-card--featured reveal overflow-hidden">
           <div class="img-frame h-48 overflow-hidden sm:h-52 lg:h-full lg:min-h-[18rem]">
-            <img src="images/photobooth-promo.jpg" alt="419 Venue Guy photobooth rental illustration" class="experience-img experience-img--photobooth" loading="lazy" />
+            <img src="images/photobooth-inflatable.jpg" alt="419 Venue Guy inflatable photobooth setup with props" class="experience-img experience-img--photobooth-photo" loading="lazy" />
           </div>
           <div class="flex flex-col justify-center p-6 lg:p-8">
             <h3 class="font-display text-2xl font-semibold text-ink">Photobooth Rental</h3>
@@ -1493,7 +1528,7 @@
         </article>
 
         <article class="experience-card reveal overflow-hidden">
-          <div class="img-frame h-48 overflow-hidden sm:h-52">
+          <div class="img-frame experience-img-frame--tall overflow-hidden">
             <img src="images/hero-hibachi-event.jpg" alt="Backyard hibachi party with guests under a tent" class="experience-img experience-img--hibachi" loading="lazy" />
           </div>
           <div class="p-6">
@@ -1505,7 +1540,7 @@
         </article>
 
         <article class="experience-card reveal overflow-hidden">
-          <div class="img-frame relative h-48 overflow-hidden sm:h-52">
+          <div class="img-frame experience-img-frame--tall relative overflow-hidden">
             <img src="images/in-home-chef-porch.jpg" alt="Porch dining table set for an in-home chef dinner by 419 Venue Guy" class="experience-img experience-img--chef" loading="lazy" />
             <span class="img-credit" aria-label="Photo by 419 Venue Guy">419 Venue Guy</span>
           </div>
@@ -1537,8 +1572,11 @@
         </div>
       </div>
 
-      <blockquote class="philosophy-quote reveal mt-10 font-display text-lg leading-relaxed sm:text-xl">
-        &ldquo;Honestly, the number one rule in catering is that it's a luxury — not everyone can afford this luxury. It's not just &lsquo;Oh, waffles only cost $5 — why are they charging that much just for that?&rsquo; Catering isn't merely about providing food. It's a luxury service that elevates any event into a memorable experience. By combining culinary artistry, meticulous attention to detail, and exceptional hospitality, catering transforms ordinary gatherings into extraordinary occasions, making sure every guest feels valued and indulged. If you're looking at services through 419 Venue Guy, know you're going to get the best.&rdquo;
+      <blockquote class="philosophy-quote reveal mt-10 text-base leading-relaxed sm:text-lg">
+        <p class="font-display text-xl italic text-gold/90 sm:text-2xl">&ldquo;Catering is a luxury.&rdquo;</p>
+        <p class="mt-4 font-display text-lg leading-relaxed text-cream/95 sm:text-xl">
+          Not everyone can afford it — and that's okay. It's not just <em>&ldquo;Waffles cost $5 — why charge that much?&rdquo;</em> Food is only part of it. You're paying for a <strong>luxury service</strong> that turns an ordinary gathering into something <strong>memorable</strong>: culinary artistry, meticulous detail, and hospitality that makes every guest feel <strong>valued and indulged</strong>. Book through 419 Venue Guy and you're getting the best Zach can bring.
+        </p>
       </blockquote>
 
       <div class="reveal mt-8 text-center">
