@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "menu-pdf": "node scripts/generate-menu-pdf.mjs"
+    "menu-pdf": "node scripts/generate-menu-pdf.mjs",
+    "image-playbook-pdf": "node scripts/generate-image-enhancement-doc-pdf.mjs"
   },
   "devDependencies": {
     "pdfkit": "^0.17.2"
