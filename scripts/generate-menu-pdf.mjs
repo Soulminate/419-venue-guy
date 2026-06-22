@@ -137,11 +137,17 @@ doc.fillColor(ink).font('Helvetica-Bold').fontSize(14).text('Experiences & Add-O
 doc.y += 22;
 
 experiences.forEach(([name, detail]) => {
-  ensureSpace(doc, 28);
+  ensureSpace(doc, 34);
   const rowY = doc.y;
-  doc.font('Helvetica-Bold').fontSize(10).fillColor(ink).text(name, 48, rowY, { width: 280 });
-  doc.font('Helvetica').fontSize(9.5).fillColor(bark).text(detail, 300, rowY, { width: doc.page.width - 348, align: 'right' });
-  doc.y = rowY + 18;
+  doc.font('Helvetica-Bold').fontSize(10).fillColor(ink).text(name, 48, rowY, { width: doc.page.width - 96 });
+  const isPrice = detail.startsWith('$');
+  if (isPrice) {
+    doc.font('Helvetica-Bold').fontSize(10).fillColor(amber).text(detail, 48, rowY + 14, { width: doc.page.width - 96, align: 'right' });
+    doc.y = rowY + 30;
+  } else {
+    doc.font('Helvetica').fontSize(9.5).fillColor(bark).text(detail, 48, rowY + 14, { width: doc.page.width - 96 });
+    doc.y = rowY + 30;
+  }
 });
 
 ensureSpace(doc, 100);
@@ -156,7 +162,9 @@ doc.fillColor(ink).font('Helvetica-BoldOblique').fontSize(10)
 
 doc.y += 88;
 doc.font('Helvetica-Bold').fontSize(11).fillColor(amber)
-  .text('419-208-5568  ·  Venueguy419@yahoo.com  ·  facebook.com/p/419-Venue-Guy-100088818851901/', 48, doc.y, { width: doc.page.width - 96, align: 'center' });
+  .text('419-208-5568  ·  Venueguy419@yahoo.com', 48, doc.y, { width: doc.page.width - 96, align: 'center' });
+doc.font('Helvetica').fontSize(10).fillColor(bark)
+  .text('Find us on Facebook — search 419 Venue Guy', 48, doc.y + 16, { width: doc.page.width - 96, align: 'center' });
 
 doc.end();
 
