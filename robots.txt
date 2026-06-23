@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://419-venue-guy.vercel.app/sitemap.xml
+Sitemap: https://419venueguy.com/sitemap.xml

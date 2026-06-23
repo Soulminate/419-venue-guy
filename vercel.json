@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "419-venue-guy.vercel.app"
+        }
+      ],
+      "destination": "https://419venueguy.com/:path*",
+      "permanent": true
+    }
+  ]
+}
