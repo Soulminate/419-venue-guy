@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>419 Venue Guy | Catering &amp; Food Truck — Fremont, OH</title>
-  <meta name="description" content="Fremont &amp; 419-area home-style catering and food truck events — plus in-home chef dinners, photobooth rentals &amp; backyard hibachi. Owner-operated by Zach Beckman. Call 419-208-5568." />
+  <meta name="description" content="Banquet-style catering and food truck events across the 419 and surrounding areas — plus in-home chef dinners, photobooth rentals &amp; backyard hibachi. Owner-operated by Zach Beckman. Call 419-208-5568." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#1c1712" />
   <meta name="geo.region" content="US-OH" />
@@ -16,13 +16,13 @@
   <meta property="og:site_name" content="419 Venue Guy" />
   <meta property="og:url" content="https://419-venue-guy.vercel.app/" />
   <meta property="og:title" content="419 Venue Guy | Catering &amp; Food Truck — Fremont, OH" />
-  <meta property="og:description" content="Home-style catering &amp; food truck nights across Fremont, Tiffin &amp; Toledo — plus in-home chef dinners, photobooths &amp; more. We specialize in smiles." />
+  <meta property="og:description" content="Banquet-style catering &amp; food truck nights across the 419 and beyond — plus in-home chef dinners, photobooths &amp; more. We specialize in smiles." />
   <meta property="og:image" content="https://419-venue-guy.vercel.app/images/og-share-catering.jpg" />
   <meta property="og:image:alt" content="419 Venue Guy catering buffet spread at an event in northwest Ohio" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="419 Venue Guy | Catering &amp; Food Truck — Fremont, OH" />
-  <meta name="twitter:description" content="Home-style catering &amp; food truck nights across the 419 — plus photobooths, in-home chef &amp; more. Call Zach — 419-208-5568." />
+  <meta name="twitter:description" content="Banquet-style catering &amp; food truck nights across the 419 and surrounding areas — plus photobooths, in-home chef &amp; more. Call Zach — 419-208-5568." />
   <meta name="twitter:image" content="https://419-venue-guy.vercel.app/images/og-share-catering.jpg" />
   <script type="application/ld+json">
   {
@@ -33,7 +33,7 @@
         "@id": "https://419-venue-guy.vercel.app/#business",
         "name": "419 Venue Guy",
         "alternateName": "419 Venue Guy Catering",
-        "description": "Owner-operated catering and events in Fremont, Ohio — home-style catering, food truck nights, in-home chef experiences, photobooth rentals, and backyard hibachi across northwest Ohio.",
+        "description": "Owner-operated catering and events in Fremont, Ohio — banquet-style catering, food truck nights, in-home chef experiences, photobooth rentals, and backyard hibachi across northwest Ohio and surrounding areas.",
         "url": "https://419-venue-guy.vercel.app/",
         "telephone": "+1-419-208-5568",
         "email": "Venueguy419@yahoo.com",
@@ -47,10 +47,9 @@
           "addressCountry": "US"
         },
         "areaServed": [
-          { "@type": "City", "name": "Fremont", "containedInPlace": { "@type": "State", "name": "Ohio" } },
-          { "@type": "City", "name": "Tiffin", "containedInPlace": { "@type": "State", "name": "Ohio" } },
-          { "@type": "City", "name": "Toledo", "containedInPlace": { "@type": "State", "name": "Ohio" } },
-          { "@type": "AdministrativeArea", "name": "Northwest Ohio" }
+          { "@type": "AdministrativeArea", "name": "Northwest Ohio" },
+          { "@type": "AdministrativeArea", "name": "Ohio 419 area" },
+          { "@type": "State", "name": "Ohio" }
         ],
         "founder": { "@type": "Person", "name": "Zach Beckman" },
         "sameAs": [
@@ -61,7 +60,7 @@
           "@type": "OfferCatalog",
           "name": "419 Venue Guy Services",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home-Style Catering", "description": "Buffets, BBQ, pasta, taco bars, and custom menus priced per person." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Banquet-Style Catering", "description": "Buffet spreads, plated dinners, pasta, taco bars, and custom banquet menus priced per person." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Food Truck Events", "description": "Mobile food truck for pop-ups, festivals, and private events." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "In-Home Chef Experiences", "description": "Private chef dinner prepared in your home." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dessert & Extras", "description": "Dessert carts, cannoli carts, and growing event add-ons." } },
@@ -88,7 +87,7 @@
             "name": "What areas does 419 Venue Guy serve?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "419 Venue Guy is based in Fremont, Ohio and serves northwest Ohio including Fremont, Tiffin, Toledo, and the greater 419 area."
+              "text": "419 Venue Guy is based in Fremont, Ohio and serves the 419 area and surrounding communities across northwest Ohio. Willing to travel farther for the right event — call to discuss your location."
             }
           },
           {
@@ -539,6 +538,45 @@
     @keyframes star-shine {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.88; transform: scale(1.04); }
+    }
+
+    .stars-hero-animated {
+      display: inline-flex;
+      gap: 0.1em;
+    }
+
+    .star-char {
+      display: inline-block;
+      color: #e8b84a;
+      text-shadow: 0 0 14px rgba(232, 184, 74, 0.45);
+      animation: star-twinkle 2.6s ease-in-out infinite;
+    }
+
+    .star-char:nth-child(1) { animation-delay: 0s; }
+    .star-char:nth-child(2) { animation-delay: 0.35s; }
+    .star-char:nth-child(3) { animation-delay: 0.7s; }
+    .star-char:nth-child(4) { animation-delay: 1.05s; }
+    .star-char:nth-child(5) { animation-delay: 1.4s; }
+
+    @keyframes star-twinkle {
+      0%, 100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+        text-shadow: 0 0 12px rgba(232, 184, 74, 0.45);
+      }
+      50% {
+        transform: scale(1.18) translateY(-2px);
+        opacity: 0.92;
+        text-shadow: 0 0 26px rgba(232, 184, 74, 0.95), 0 0 8px rgba(255, 220, 120, 0.6);
+      }
+    }
+
+    .press-card {
+      transition: border-color 0.35s, box-shadow 0.35s;
+    }
+
+    .press-card:hover {
+      box-shadow: 0 24px 60px -28px rgba(28, 23, 18, 0.28);
     }
 
     .site-header {
@@ -1129,7 +1167,8 @@
       .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
       .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
       .hero-photo-accent, .hero-badge, .hero-pill-dot, .service-detail,
-      .menu-panel, .site-header, .site-header::after, .header-badge {
+      .menu-panel, .site-header, .site-header::after, .header-badge,
+      .star-char, .stars-hero-animated {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -1184,12 +1223,12 @@
           Serving the 419
         </p>
         <h1 class="font-display text-[2.15rem] font-semibold leading-[1.08] tracking-tight text-ink min-[400px]:text-[2.4rem] sm:text-5xl lg:text-[3.6rem]">
-          Home-style catering.<br />
+          Banquet-style catering.<br />
           <span class="italic text-rust">Food truck nights.</span><br />
           Events made easy.
         </h1>
         <p class="mt-5 max-w-xl text-base leading-relaxed text-bark/90 sm:mt-6 sm:text-lg">
-          Chef Zach Beckman brings the kitchen to you — buffets and BBQ for the big crowd, the food truck for pop-up nights, in-home chef dinners when it's intimate, and the kind of personal service that makes people stop mid-bite and smile.
+          Chef Zach Beckman brings the kitchen to you — elegant buffet spreads and plated service for weddings and galas, the food truck for pop-up nights, in-home chef dinners when it's intimate, and the kind of personal service that makes people stop mid-bite and smile.
         </p>
         <p class="mt-4 font-display text-xl italic text-moss">We specialize in smiles!</p>
 
@@ -1207,10 +1246,10 @@
         <div class="mt-10 border-t border-ink/10 pt-8">
           <div class="five-star-badge five-star-shine flex flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between">
             <div class="flex items-center gap-4">
-              <div class="stars text-3xl leading-none" aria-hidden="true">★★★★★</div>
+              <div class="stars-hero-animated text-3xl leading-none" aria-hidden="true"><span class="star-char">★</span><span class="star-char">★</span><span class="star-char">★</span><span class="star-char">★</span><span class="star-char">★</span></div>
               <div>
                 <p class="font-display text-2xl font-bold text-ink sm:text-3xl">5-Star Service on Google</p>
-                <p class="text-sm font-medium text-bark/80">Perfect 5.0 rating · 4 verified reviews</p>
+                <p class="text-sm font-medium text-bark/80">Perfect 5.0 rating</p>
               </div>
             </div>
             <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 self-start rounded-full bg-ink px-4 py-2 text-sm font-semibold text-cream transition hover:bg-bark sm:self-center">
@@ -1269,7 +1308,7 @@
         <div class="hero-badge rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-lift backdrop-blur sm:px-5 sm:py-4">
           <p class="text-[0.65rem] font-semibold uppercase tracking-widest text-amber sm:text-xs">What we do best</p>
           <p class="font-display text-base font-semibold text-ink sm:text-lg">Catering &amp; Food Truck</p>
-          <p class="text-xs text-bark/75 sm:text-sm">Buffets to pop-up nights · Fremont &amp; the 419</p>
+          <p class="text-xs text-bark/75 sm:text-sm">Buffets to pop-up nights · the 419 &amp; beyond</p>
         </div>
       </div>
     </div>
@@ -1278,22 +1317,22 @@
   <!-- Marquee -->
   <div class="overflow-hidden border-y border-ink/8 bg-gradient-to-r from-ink via-bark to-ink py-4 text-cream" aria-hidden="true">
     <div class="marquee-track flex w-max gap-10 whitespace-nowrap text-sm font-medium uppercase tracking-[0.25em]">
-      <span>Home-style catering</span><span>·</span>
+      <span>Banquet-style catering</span><span>·</span>
       <span>Food truck nights</span><span>·</span>
       <span>In-home chef dinners</span><span>·</span>
       <span>Weddings & graduations</span><span>·</span>
       <span>Dessert carts & extras</span><span>·</span>
       <span>Photobooth rental</span><span>·</span>
       <span>Backyard hibachi</span><span>·</span>
-      <span>Fremont · Tiffin · Toledo · the 419</span><span>·</span>
-      <span>Home-style catering</span><span>·</span>
+      <span>The 419 &amp; surrounding areas</span><span>·</span>
+      <span>Banquet-style catering</span><span>·</span>
       <span>Food truck nights</span><span>·</span>
       <span>In-home chef dinners</span><span>·</span>
       <span>Weddings & graduations</span><span>·</span>
       <span>Dessert carts & extras</span><span>·</span>
       <span>Photobooth rental</span><span>·</span>
       <span>Backyard hibachi</span><span>·</span>
-      <span>Fremont · Tiffin · Toledo · the 419</span><span>·</span>
+      <span>The 419 &amp; surrounding areas</span><span>·</span>
     </div>
   </div>
 
@@ -1322,11 +1361,11 @@
             <img src="images/cater-soup-bread-station.jpg" alt="Soup and bread catering station with chafing dishes by 419 Venue Guy" class="service-img h-full w-full object-cover object-center" loading="lazy" />
           </div>
           <div class="service-body p-6">
-            <h3 class="font-display text-2xl font-semibold text-ink">Home-Style Catering</h3>
-            <p class="service-summary mt-2 text-bark/80">BBQ, pasta, taco bars, buffets, and stations. American comfort food with real kitchen craft — not cafeteria trays.</p>
+            <h3 class="font-display text-2xl font-semibold text-ink">Banquet-Style Catering</h3>
+            <p class="service-summary mt-2 text-bark/80">Buffet spreads, plated dinners, pasta, Italian, and taco bars — polished banquet service with real kitchen craft, not cafeteria trays.</p>
             <p class="service-hover-hint">Hover for details</p>
             <div class="service-detail">
-              <p>Weddings, graduations, corporate lunches, and family gatherings — Zach builds menus around what your crowd actually eats. Buffets, plated dinners, taco bars, BBQ spreads, and more. Portions are generous and the setup is handled.</p>
+              <p>Weddings, corporate events, graduations, and family celebrations — Zach builds banquet menus around what your crowd actually wants. Chafing-dish buffets, plated service, pasta stations, taco bars, and more. Select BBQ options available on request. Portions are generous and the full setup is handled.</p>
             </div>
           </div>
         </article>
@@ -1369,10 +1408,10 @@
           </div>
           <div class="service-body p-6">
             <h3 class="font-display text-2xl font-semibold text-ink">Dessert &amp; Extras</h3>
-            <p class="service-summary mt-2 text-bark/80">Dessert carts, cannoli carts, and growing event packages — sound, tents, and more as you need them.</p>
+            <p class="service-summary mt-2 text-bark/80">Dessert carts, cannoli carts, and sweet finishes that round out your banquet or reception.</p>
             <p class="service-hover-hint">Hover for details</p>
             <div class="service-detail">
-              <p>Sweet finishes and add-ons for any event — dessert displays, specialty carts, and extras like sound and tents as packages grow. Ask Zach what's available for your date.</p>
+              <p>Sweet finishes and specialty carts for any event — dessert displays, cannoli carts, and custom add-ons to complement your catering spread. Ask Zach what's available for your date.</p>
             </div>
             <p class="mt-3 text-sm font-semibold text-amber">Call for quote →</p>
           </div>
@@ -1429,7 +1468,7 @@
             As seen on WTOL 11
           </p>
           <h2 class="mt-5 font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">Hate setting up for events?<br /><span class="text-gold">Call the 419 Venue Guy.</span></h2>
-          <p class="mt-5 text-lg leading-relaxed text-cream/85">Zach Beckman was featured on <strong class="font-semibold text-cream">Good Day on WTOL 11</strong> — northwest Ohio's morning show — talking about how he takes the stress off your plate with home-style catering, food truck nights, photobooths, and full event support across the 419.</p>
+          <p class="mt-5 text-lg leading-relaxed text-cream/85">Zach Beckman was featured on <strong class="font-semibold text-cream">Good Day on WTOL 11</strong> — northwest Ohio's morning show — talking about how he takes the stress off your plate with banquet-style catering, food truck nights, photobooths, and full event support across the 419 and beyond.</p>
           <blockquote class="mt-6 border-l-4 border-gold/60 pl-5 font-display text-xl italic leading-relaxed text-cream/90">"We specialize in smiles — I show up, I cook, and you actually get to enjoy your own party."</blockquote>
           <div class="mt-8 flex flex-wrap gap-4">
             <a href="https://www.youtube.com/watch?v=DaFd68JnKug" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink transition hover:bg-amber">
@@ -1440,7 +1479,7 @@
               View on WTOL.com
             </a>
           </div>
-          <p class="mt-6 text-sm text-cream/60">Also featured in The News-Messenger for his Terra State kitchen partnership in Fremont.</p>
+          <p class="mt-6 text-sm text-cream/60">Also profiled in <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="underline decoration-gold/40 underline-offset-2 transition hover:text-gold">The News-Messenger</a> for his Terra State kitchen partnership and custom catering across the region.</p>
         </div>
 
         <div class="reveal">
@@ -1518,7 +1557,7 @@
           <div class="menu-grid">
             <article class="menu-item">
               <div class="menu-item-body">
-                <h3 class="menu-item-title">Home style</h3>
+                <h3 class="menu-item-title">Banquet style</h3>
                 <details class="menu-details">
                   <summary>What's included</summary>
                   <p>Choose up to 3 meats, 2 hot sides, and a cold side. Served with bread and salad.</p>
@@ -1693,11 +1732,7 @@
         </article>
       </div>
 
-      <div class="reveal mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="addon-chip">
-          <p class="font-semibold text-ink">On-site omelet bar</p>
-          <p class="text-sm text-bark/75">Call for quote</p>
-        </div>
+      <div class="reveal mt-8 grid gap-3 sm:grid-cols-3">
         <div class="addon-chip">
           <p class="font-semibold text-ink">Dessert cart rental</p>
           <p class="text-sm text-bark/75">Call for quote</p>
@@ -1733,9 +1768,9 @@
       <div class="grid items-center gap-14 lg:grid-cols-2">
         <div class="reveal">
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Why 419 Venue Guy</p>
-          <h2 class="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Small team. Big heart.<br />Zero corporate nonsense.</h2>
+          <h2 class="mt-3 font-display text-3xl font-semibold sm:text-4xl lg:text-5xl">Small team. Big heart.<br />Personal service, every event.</h2>
           <p class="mt-5 text-lg leading-relaxed text-cream/80">
-            Zach started this because he loves feeding people and making events feel personal. When you hire 419 Venue Guy, you talk to the guy. He cooks. He shows up. He cares whether your niece got seconds on the mac and cheese.
+            Zach started this because he loves feeding people and making events feel personal — whether it's a backyard reunion or a company luncheon. When you hire 419 Venue Guy, you talk to the owner. He plans, cooks, and shows up. He cares whether your niece got seconds on the mac and cheese.
           </p>
           <ul class="mt-8 space-y-4">
             <li class="flex gap-4">
@@ -1755,8 +1790,8 @@
             <li class="flex gap-4">
               <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber/20 text-amber">✓</span>
               <div>
-                <p class="font-semibold">Rooted in Fremont, traveling the 419</p>
-                <p class="text-sm text-cream/70">Weddings in Tiffin, corporate in Fremont, food truck nights across NWOH.</p>
+                <p class="font-semibold">Based in the 419, willing to travel</p>
+                <p class="text-sm text-cream/70">Weddings, corporate events, and food truck nights across northwest Ohio — and farther when the booking makes sense.</p>
               </div>
             </li>
             <li class="flex gap-4">
@@ -1815,20 +1850,34 @@
           <footer class="mt-6 text-sm font-semibold text-bark">— 419 Venue Guy <span class="font-normal text-bark/60">· Graduation catering</span></footer>
         </blockquote>
 
-        <blockquote class="reveal overflow-hidden rounded-3xl bg-moss text-cream shadow-card">
-          <img src="images/share-and-care.jpg" alt="419 Venue Guy catering at a community event" class="h-40 w-full object-cover object-top" loading="lazy" />
-          <div class="p-8">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">In the community</p>
-            <p class="mt-3 font-display text-xl italic leading-relaxed text-cream/90">"Every event matters — from weddings and graduations to the neighborhood gatherings that keep Fremont fed."</p>
-            <p class="mt-6 text-sm text-cream/70">Real events, real spreads, real smiles across the 419.</p>
-          </div>
+        <blockquote class="reveal rounded-3xl border border-amber/20 bg-gradient-to-br from-white via-white to-amber/10 p-8 shadow-card">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber">The News-Messenger</p>
+          <p class="mt-3 font-display text-xl italic leading-relaxed text-ink">&ldquo;If you cater, you should cater to your customer.&rdquo;</p>
+          <footer class="mt-6 text-sm text-bark/75">Sheri Trusty profiled Zach in <em>Meet Your Neighbor</em> — on custom wedding catering, Terra State kitchen partnership, and building menus around each client.</footer>
+          <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read the full story →</a>
         </blockquote>
+      </div>
+
+      <div class="reveal mt-10 grid gap-5 lg:grid-cols-2">
+        <article class="press-card rounded-3xl bg-white p-8 shadow-card">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber">The News-Messenger</p>
+          <h3 class="mt-2 font-display text-xl font-semibold text-ink">Meet Your Neighbor: The 419 Venue Guy</h3>
+          <p class="mt-3 leading-relaxed text-bark/80">After losing his kitchen, Zach found a new home at Terra State Community College — keeping custom catering for weddings and events moving forward across the region.</p>
+          <p class="mt-4 font-display text-lg italic text-ink">&ldquo;You build your own menu.&rdquo;</p>
+          <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read at thenews-messenger.com →</a>
+        </article>
+        <article class="press-card rounded-3xl border border-ink/8 bg-blush/30 p-8">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber">The News-Messenger</p>
+          <h3 class="mt-2 font-display text-xl font-semibold text-ink">International Chefs Day</h3>
+          <p class="mt-3 leading-relaxed text-bark/80">Zach Beckman was highlighted among northwest Ohio chefs celebrated on International Chefs Day — recognized for catering, in-home chef experiences, and bringing the kitchen to your event.</p>
+          <a href="https://www.thenews-messenger.com/story/news/local/2023/10/20/today-is-international-chefs-day/71226591007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">View the feature →</a>
+        </article>
       </div>
 
       <div class="reveal mt-8 five-star-badge rounded-3xl px-8 py-7 text-center shadow-card">
         <p class="stars five-star-shine text-4xl" aria-hidden="true">★★★★★</p>
         <p class="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">5-Star Service on Google</p>
-        <p class="mt-2 text-lg text-bark/80">Perfect 5.0 from 4 verified reviews — neighbors rate Zach top marks.</p>
+        <p class="mt-2 text-lg text-bark/80">Perfect 5.0 rating — neighbors rate Zach top marks.</p>
         <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
           <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3 text-sm font-semibold text-white transition hover:bg-rust">Read Google reviews</a>
           <a href="https://www.facebook.com/p/419-Venue-Guy-100088818851901/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:border-amber/40">Follow on Facebook</a>
@@ -1898,7 +1947,7 @@
             <div class="absolute bottom-0 p-10 lg:p-14">
               <p class="text-sm font-semibold uppercase tracking-widest text-gold">Based in</p>
               <p class="font-display text-2xl font-semibold text-cream">Fremont, Ohio</p>
-              <p class="mt-1 text-cream/75">Serving the 419 · Fremont · Tiffin · Toledo area</p>
+              <p class="mt-1 text-cream/75">Serving the 419 and surrounding areas — willing to travel for the right event</p>
             </div>
           </div>
         </div>
