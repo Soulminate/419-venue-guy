@@ -370,15 +370,17 @@
       transition: height 0.45s var(--ease-out-expo), opacity 0.45s;
     }
 
-    .service-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(196, 122, 26, 0.22);
-      box-shadow: 0 20px 50px -28px rgba(28, 23, 18, 0.28);
-    }
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(196, 122, 26, 0.22);
+        box-shadow: 0 20px 50px -28px rgba(28, 23, 18, 0.28);
+      }
 
-    .service-card:hover::before {
-      height: 6px;
-      opacity: 1;
+      .service-card:hover::before {
+        height: 6px;
+        opacity: 1;
+      }
     }
 
     .service-card-index {
@@ -398,10 +400,6 @@
 
     .service-card h3 {
       transition: color 0.35s ease;
-    }
-
-    .service-card:hover h3 {
-      color: var(--card-accent, #c47a1a);
     }
 
     .service-body {
@@ -430,13 +428,6 @@
       color: rgba(61, 46, 34, 0.82);
     }
 
-    .service-card:hover .service-detail,
-    .service-card:focus-within .service-detail {
-      max-height: 10rem;
-      opacity: 1;
-      margin-top: 0.25rem;
-    }
-
     .service-hover-hint {
       margin-top: 0.75rem;
       font-size: 0.75rem;
@@ -447,20 +438,50 @@
       transition: opacity 0.3s ease, color 0.3s ease;
     }
 
-    .service-card:hover .service-hover-hint,
-    .service-card:focus-within .service-hover-hint {
+    .service-card.is-expanded .service-detail {
+      max-height: 28rem;
+      opacity: 1;
+      margin-top: 0.25rem;
+    }
+
+    .service-card.is-expanded .service-hover-hint {
       opacity: 0;
     }
 
-    @media (hover: none) {
-      .service-detail {
-        max-height: none;
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover h3 {
+        color: var(--card-accent, #c47a1a);
+      }
+
+      .service-card:hover .service-detail,
+      .service-card:focus-within .service-detail {
+        max-height: 28rem;
         opacity: 1;
         margin-top: 0.25rem;
       }
 
-      .service-hover-hint {
-        display: none;
+      .service-card:hover .service-hover-hint,
+      .service-card:focus-within .service-hover-hint {
+        opacity: 0;
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .service-card:hover,
+      .service-card:focus-within {
+        transform: none;
+        border-color: rgba(28, 23, 18, 0.06);
+        box-shadow: 0 24px 60px -28px rgba(28, 23, 18, 0.35);
+      }
+
+      .service-card:hover::before,
+      .service-card:focus-within::before {
+        height: 4px;
+      }
+
+      .service-card:hover h3,
+      .service-card:focus-within h3 {
+        color: #1c1712;
       }
     }
 
@@ -577,6 +598,136 @@
 
     .press-card:hover {
       box-shadow: 0 24px 60px -28px rgba(28, 23, 18, 0.28);
+    }
+
+    .press-feature {
+      background:
+        radial-gradient(ellipse 70% 45% at 15% 0%, rgba(232, 184, 74, 0.14), transparent 55%),
+        linear-gradient(180deg, #f3ece0 0%, #f8f4ec 38%, #f8f4ec 100%);
+    }
+
+    .press-masthead {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #1c1712;
+      border-bottom: 3px double rgba(28, 23, 18, 0.82);
+      padding-bottom: 0.65rem;
+    }
+
+    .press-masthead-sub {
+      margin-top: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(61, 46, 34, 0.55);
+    }
+
+    .press-hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(28, 23, 18, 0.1);
+      background: #fffdf8;
+      box-shadow: 0 28px 70px -34px rgba(28, 23, 18, 0.28);
+    }
+
+    .press-hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(180deg, #c47a1a, #e8b84a);
+    }
+
+    .press-hero-body {
+      padding: 1.75rem 1.75rem 1.75rem 2rem;
+    }
+
+    .press-hero-image {
+      min-height: 14rem;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .press-quote-pull {
+      position: relative;
+      border-left: 4px solid rgba(196, 122, 26, 0.55);
+      padding-left: 1.1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.45;
+      color: #1c1712;
+    }
+
+    .press-side-card {
+      border-radius: 1.25rem;
+      border: 1px solid rgba(28, 23, 18, 0.08);
+      background: rgba(255, 255, 255, 0.82);
+      padding: 1.35rem 1.5rem;
+      box-shadow: 0 16px 40px -28px rgba(28, 23, 18, 0.2);
+    }
+
+    .press-date-pill {
+      display: inline-flex;
+      border-radius: 9999px;
+      background: rgba(28, 23, 18, 0.06);
+      padding: 0.28rem 0.7rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(61, 46, 34, 0.7);
+    }
+
+    .menu-pdf-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu-pdf-preview {
+      pointer-events: none;
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 0.85rem);
+      z-index: 30;
+      width: 11.5rem;
+      border-radius: 0.85rem;
+      border: 1px solid rgba(28, 23, 18, 0.12);
+      background: #fff;
+      padding: 0.45rem;
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px) scale(0.96);
+      transition: opacity 0.28s var(--ease-out-expo), transform 0.28s var(--ease-out-expo);
+      box-shadow: 0 24px 50px -20px rgba(28, 23, 18, 0.35);
+    }
+
+    .menu-pdf-preview img {
+      display: block;
+      width: 100%;
+      border-radius: 0.55rem;
+    }
+
+    .menu-pdf-preview-label {
+      margin-top: 0.35rem;
+      text-align: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(61, 46, 34, 0.55);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .menu-pdf-wrap:hover .menu-pdf-preview,
+      .menu-pdf-wrap:focus-within .menu-pdf-preview {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
     }
 
     .site-header {
@@ -1197,6 +1348,7 @@
       <nav class="hidden items-center gap-6 text-sm font-semibold text-cream/85 lg:gap-8 md:flex" aria-label="Main">
         <a href="#services" class="header-nav-link transition hover:text-gold">Services</a>
         <a href="#wtol" class="header-nav-link transition hover:text-gold">On TV</a>
+        <a href="#press" class="header-nav-link transition hover:text-gold">Press</a>
         <a href="#menu" class="header-nav-link transition hover:text-gold">Menu</a>
         <a href="#experiences" class="header-nav-link transition hover:text-gold">Extras</a>
         <a href="#why" class="header-nav-link transition hover:text-gold">Why Us</a>
@@ -1462,7 +1614,7 @@
   <section id="wtol" class="wtol-feature relative overflow-hidden py-16 text-cream sm:py-20 lg:py-28">
     <div class="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
       <div class="reveal grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <div>
+        <div class="order-2 lg:order-1">
           <p class="wtol-badge">
             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
             As seen on WTOL 11
@@ -1479,10 +1631,9 @@
               View on WTOL.com
             </a>
           </div>
-          <p class="mt-6 text-sm text-cream/60">Also profiled in <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="underline decoration-gold/40 underline-offset-2 transition hover:text-gold">The News-Messenger</a> for his Terra State kitchen partnership and custom catering across the region.</p>
         </div>
 
-        <div class="reveal">
+        <div class="reveal order-1 lg:order-2">
           <div class="video-embed" title="419 Venue Guy on Good Day WTOL 11">
             <iframe
               src="https://www.youtube.com/embed/DaFd68JnKug?rel=0"
@@ -1493,6 +1644,55 @@
             ></iframe>
           </div>
           <p class="mt-4 text-center text-xs uppercase tracking-[0.2em] text-cream/50">Good Day on WTOL 11 · Featured segment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press -->
+  <section id="press" class="press-feature py-16 sm:py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">In the press</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">Featured in The News-Messenger</h2>
+        <p class="mt-4 text-lg text-bark/80">Correspondent Sheri Trusty profiled Zach on rebuilding after losing his kitchen — and on what it means to cater to every client, not a fixed menu.</p>
+      </div>
+
+      <div class="reveal mt-12 grid gap-6 lg:grid-cols-12 lg:gap-8">
+        <article class="press-hero-card lg:col-span-7">
+          <div class="grid md:grid-cols-5">
+            <div class="press-hero-body md:col-span-3">
+              <p class="press-masthead">The News-Messenger</p>
+              <p class="press-masthead-sub">Meet Your Neighbor · April 2023</p>
+              <h3 class="mt-5 font-display text-2xl font-semibold leading-tight text-ink sm:text-3xl">The 419 Venue Guy finds a way to keep cooking</h3>
+              <p class="mt-4 text-sm leading-relaxed text-bark/80">After losing his kitchen, Zach Beckman rented a commercial kitchen at Terra State Community College — keeping custom wedding catering, in-home chef nights, and photobooth rentals moving across the region.</p>
+              <blockquote class="press-quote-pull mt-6">&ldquo;When I walked into this kitchen, I was amazed. I feel like a mini superstar without being a superstar.&rdquo;</blockquote>
+              <blockquote class="press-quote-pull mt-4 text-base text-bark/90">&ldquo;If you cater, you should cater to your customer. If you only offer pasta and barbeque and they want sandwiches, you&rsquo;ve lost a customer.&rdquo;</blockquote>
+              <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition hover:bg-bark">Read the full story →</a>
+            </div>
+            <div class="relative md:col-span-2">
+              <img src="images/hibachi-wtol.jpg" alt="Chef Zach Beckman cooking at an event, as featured in The News-Messenger" class="press-hero-image h-56 w-full md:absolute md:inset-0 md:h-full" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <div class="flex flex-col gap-5 lg:col-span-5">
+          <article class="press-side-card reveal">
+            <span class="press-date-pill">October 2023</span>
+            <h3 class="mt-3 font-display text-xl font-semibold text-ink">International Chefs Day</h3>
+            <p class="mt-2 text-sm leading-relaxed text-bark/80">Zach was highlighted among northwest Ohio chefs celebrated on International Chefs Day — recognized for catering, in-home chef experiences, and bringing the kitchen to your event.</p>
+            <a href="https://www.thenews-messenger.com/story/news/local/2023/10/20/today-is-international-chefs-day/71226591007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">View the feature →</a>
+          </article>
+          <article class="press-side-card reveal">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber">On building menus</p>
+            <p class="mt-3 font-display text-2xl italic leading-snug text-ink">&ldquo;You build your own menu.&rdquo;</p>
+            <p class="mt-3 text-sm leading-relaxed text-bark/75">From stuffed flank steak and chicken parm to lobster and scallops for in-home chef nights — Zach adjusts every meal to the size of the party and what the client actually wants.</p>
+          </article>
+          <article class="press-side-card reveal">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber">On the photobooth</p>
+            <p class="mt-3 font-display text-lg italic leading-relaxed text-ink">&ldquo;It prints photos in strips or as postcards. It&rsquo;s great for parties.&rdquo;</p>
+            <p class="mt-3 text-sm text-bark/75">Available on its own or bundled with banquet catering — one less vendor for your wedding or graduation.</p>
+          </article>
         </div>
       </div>
     </div>
@@ -1681,10 +1881,16 @@
           <p class="mt-1 text-sm text-bark/75">Bundle packages make better pricing. Food truck nights, photobooth, hibachi &amp; more in Extras below.</p>
         </div>
         <div class="flex flex-wrap items-center justify-center gap-3">
-          <a href="downloads/419-venue-guy-menu.pdf" class="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-white px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-amber/40 hover:text-amber" download>
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            Download menu (PDF)
-          </a>
+          <div class="menu-pdf-wrap">
+            <a href="downloads/419-venue-guy-menu.pdf" class="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-white px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-amber/40 hover:text-amber" download>
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Download menu (PDF)
+            </a>
+            <div class="menu-pdf-preview" aria-hidden="true">
+              <img src="images/menu-pdf-preview.jpg" alt="" width="184" height="238" />
+              <p class="menu-pdf-preview-label">3-page menu preview</p>
+            </div>
+          </div>
           <a href="tel:4192085568" class="inline-flex items-center gap-2 rounded-full bg-amber px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-rust">Call for a quote</a>
         </div>
       </div>
@@ -1850,28 +2056,14 @@
           <footer class="mt-6 text-sm font-semibold text-bark">— 419 Venue Guy <span class="font-normal text-bark/60">· Graduation catering</span></footer>
         </blockquote>
 
-        <blockquote class="reveal rounded-3xl border border-amber/20 bg-gradient-to-br from-white via-white to-amber/10 p-8 shadow-card">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber">The News-Messenger</p>
-          <p class="mt-3 font-display text-xl italic leading-relaxed text-ink">&ldquo;If you cater, you should cater to your customer.&rdquo;</p>
-          <footer class="mt-6 text-sm text-bark/75">Sheri Trusty profiled Zach in <em>Meet Your Neighbor</em> — on custom wedding catering, Terra State kitchen partnership, and building menus around each client.</footer>
-          <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read the full story →</a>
+        <blockquote class="reveal overflow-hidden rounded-3xl bg-moss text-cream shadow-card">
+          <img src="images/share-and-care.jpg" alt="419 Venue Guy catering at the Share and Care Center with signage visible" class="h-44 w-full object-cover object-[center_18%] sm:h-48" loading="lazy" />
+          <div class="p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Share &amp; care</p>
+            <p class="mt-3 font-display text-xl italic leading-relaxed text-cream/90">&ldquo;Every event matters — from weddings and graduations to the neighborhood gatherings that keep our communities fed.&rdquo;</p>
+            <p class="mt-6 text-sm text-cream/70">Real events, real spreads, real smiles across the 419.</p>
+          </div>
         </blockquote>
-      </div>
-
-      <div class="reveal mt-10 grid gap-5 lg:grid-cols-2">
-        <article class="press-card rounded-3xl bg-white p-8 shadow-card">
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber">The News-Messenger</p>
-          <h3 class="mt-2 font-display text-xl font-semibold text-ink">Meet Your Neighbor: The 419 Venue Guy</h3>
-          <p class="mt-3 leading-relaxed text-bark/80">After losing his kitchen, Zach found a new home at Terra State Community College — keeping custom catering for weddings and events moving forward across the region.</p>
-          <p class="mt-4 font-display text-lg italic text-ink">&ldquo;You build your own menu.&rdquo;</p>
-          <a href="https://www.thenews-messenger.com/story/news/local/2023/04/10/zach-beckman-the-419-venue-guy-finds-way-to-keep-cooking-terra-state-fremont/70087719007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read at thenews-messenger.com →</a>
-        </article>
-        <article class="press-card rounded-3xl border border-ink/8 bg-blush/30 p-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber">The News-Messenger</p>
-          <h3 class="mt-2 font-display text-xl font-semibold text-ink">International Chefs Day</h3>
-          <p class="mt-3 leading-relaxed text-bark/80">Zach Beckman was highlighted among northwest Ohio chefs celebrated on International Chefs Day — recognized for catering, in-home chef experiences, and bringing the kitchen to your event.</p>
-          <a href="https://www.thenews-messenger.com/story/news/local/2023/10/20/today-is-international-chefs-day/71226591007/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">View the feature →</a>
-        </article>
       </div>
 
       <div class="reveal mt-8 five-star-badge rounded-3xl px-8 py-7 text-center shadow-card">
@@ -1991,6 +2183,30 @@
       el.style.transitionDelay = `${index * 90}ms`;
     });
     reveals.forEach((el) => observer.observe(el));
+
+    const touchServiceUI = window.matchMedia('(hover: none), (pointer: coarse)');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    function setupServiceCardInteraction() {
+      serviceCards.forEach((card) => {
+        const hint = card.querySelector('.service-hover-hint');
+        if (touchServiceUI.matches && hint) {
+          hint.textContent = 'Tap for details';
+        }
+
+        card.addEventListener('click', (event) => {
+          if (!touchServiceUI.matches) return;
+          if (event.target.closest('a, button, .duration-picker')) return;
+
+          const willExpand = !card.classList.contains('is-expanded');
+          serviceCards.forEach((other) => other.classList.remove('is-expanded'));
+          if (willExpand) card.classList.add('is-expanded');
+        });
+      });
+    }
+
+    setupServiceCardInteraction();
+    touchServiceUI.addEventListener('change', setupServiceCardInteraction);
 
     const menuTabs = document.querySelectorAll('[data-menu-tab]');
     const menuPanels = document.querySelectorAll('[data-menu-panel]');
