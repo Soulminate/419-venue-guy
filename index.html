@@ -1046,17 +1046,6 @@
       backdrop-filter: blur(6px);
     }
 
-    .reviews-google-grid {
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    @media (min-width: 768px) {
-      .reviews-google-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
     .experiences-stage {
       background:
         radial-gradient(ellipse 70% 50% at 15% 20%, rgba(232, 184, 74, 0.14), transparent 60%),
@@ -1980,43 +1969,28 @@
         <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">Neighbors trust him.<br />Guests remember the food.</h2>
       </div>
 
-      <div class="reviews-google-grid mt-12">
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
         <blockquote class="reveal rounded-3xl bg-white p-8 shadow-card">
           <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">&ldquo;It was absolutely phenomenal!! 🔥🔥 Thank you so much!&rdquo;</p>
-          <footer class="mt-6 text-sm font-semibold text-bark">— Brea Held <span class="font-normal text-bark/60">· Google review · In-home chef dinner</span></footer>
+          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">&ldquo;It was absolutely phenomenal!! Thank you so much!&rdquo;</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— Brea Held <span class="font-normal text-bark/60">· In-home chef dinner</span></footer>
         </blockquote>
 
-        <blockquote class="reveal flex flex-col rounded-3xl bg-white p-8 shadow-card">
+        <blockquote class="reveal rounded-3xl bg-white p-8 shadow-card">
           <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="mt-4 flex-1 text-sm leading-relaxed text-bark/75">Ken left a 5-star review on Google — full text is on Maps.</p>
-          <footer class="mt-6 text-sm font-semibold text-bark">— Ken Hermes <span class="font-normal text-bark/60">· Google review</span></footer>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read on Google Maps →</a>
+          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">&ldquo;The menu they picked for their daughter was top notch. What a great spread to celebrate a beautiful graduation.&rdquo;</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— 419 Venue Guy <span class="font-normal text-bark/60">· Graduation catering</span></footer>
         </blockquote>
 
-        <blockquote class="reveal flex flex-col rounded-3xl bg-white p-8 shadow-card">
-          <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="mt-4 flex-1 text-sm leading-relaxed text-bark/75">Jasper left a 5-star review on Google — full text is on Maps.</p>
-          <footer class="mt-6 text-sm font-semibold text-bark">— Jasper Icarno <span class="font-normal text-bark/60">· Google review</span></footer>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read on Google Maps →</a>
-        </blockquote>
-
-        <blockquote class="reveal flex flex-col rounded-3xl bg-white p-8 shadow-card">
-          <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="mt-4 flex-1 text-sm leading-relaxed text-bark/75">Another neighbor left a 5-star Google review — see the full quote on Maps.</p>
-          <footer class="mt-6 text-sm font-semibold text-bark">— Google reviewer <span class="font-normal text-bark/60">· Verified on Google Maps</span></footer>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read on Google Maps →</a>
-        </blockquote>
-      </div>
-
-      <blockquote class="reveal mt-6 overflow-hidden rounded-3xl bg-moss text-cream shadow-card">
+        <blockquote class="reveal overflow-hidden rounded-3xl bg-moss text-cream shadow-card">
           <img src="images/share-and-care.jpg" alt="419 Venue Guy catering at the Share and Care Center with signage visible" class="h-44 w-full object-cover object-[center_18%] sm:h-48" loading="lazy" />
           <div class="p-8">
             <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Share &amp; care</p>
             <p class="mt-3 font-display text-xl italic leading-relaxed text-cream/90">&ldquo;Every event matters — from weddings and graduations to the neighborhood gatherings that keep our communities fed.&rdquo;</p>
             <p class="mt-6 text-sm text-cream/70">Real events, real spreads, real smiles across the 419.</p>
           </div>
-      </blockquote>
+        </blockquote>
+      </div>
 
       <div class="reveal mt-8 five-star-badge rounded-3xl px-8 py-7 text-center shadow-card">
         <p class="stars stars-hero-static text-4xl" aria-hidden="true">★★★★★</p>
