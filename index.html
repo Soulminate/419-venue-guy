@@ -195,13 +195,6 @@
         radial-gradient(ellipse 60% 50% at 10% 80%, rgba(47, 74, 58, 0.14), transparent 55%),
         radial-gradient(ellipse 50% 40% at 90% 90%, rgba(158, 75, 47, 0.1), transparent 55%),
         linear-gradient(165deg, #f8f4ec 0%, #f0e6d8 45%, #f8f4ec 100%);
-      background-size: 140% 140%, 120% 120%, 100% 100%, 100% 100%;
-      animation: hero-gradient-shift 20s ease-in-out infinite;
-    }
-
-    @keyframes hero-gradient-shift {
-      0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
-      50% { background-position: 100% 50%, 50% 100%, 80% 20%, 0% 0%; }
     }
 
     .hero-orb {
@@ -209,7 +202,6 @@
       border-radius: 9999px;
       filter: blur(64px);
       pointer-events: none;
-      animation: orb-drift 16s ease-in-out infinite;
     }
 
     .hero-orb-1 {
@@ -238,12 +230,6 @@
       animation-delay: -10s;
     }
 
-    @keyframes orb-drift {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-18px, 14px) scale(1.04); }
-      66% { transform: translate(14px, -10px) scale(0.96); }
-    }
-
     .hero-pattern {
       position: absolute;
       inset: 0;
@@ -256,42 +242,8 @@
         rgba(196, 122, 26, 0.04) 72px,
         rgba(196, 122, 26, 0.04) 73px
       );
-      background-size: 200% 200%;
-      animation: pattern-scroll 48s linear infinite;
       mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 100%);
     }
-
-    @keyframes pattern-scroll {
-      from { background-position: 0 0; }
-      to { background-position: 200% 200%; }
-    }
-
-    .hero-pill-dot {
-      animation: pill-pulse 2.2s ease-in-out infinite;
-    }
-
-    @keyframes pill-pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.7; }
-    }
-
-    .hero-badge {
-      animation: badge-glow 4s ease-in-out infinite;
-    }
-
-    @keyframes badge-glow {
-      0%, 100% { box-shadow: 0 12px 40px -16px rgba(28, 23, 18, 0.25); }
-      50% { box-shadow: 0 16px 48px -12px rgba(196, 122, 26, 0.28); }
-    }
-
-    @keyframes float-photo {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-
-    .hero-photo-main { animation: float-photo 9s ease-in-out infinite; }
-    .hero-photo-secondary { animation: float-photo 11s ease-in-out infinite 0.8s; }
-    .hero-photo-accent { animation: float-photo 12s ease-in-out infinite 1.4s; }
 
     .img-frame {
       position: relative;
@@ -310,6 +262,7 @@
 
     .marquee-track {
       animation: marquee 32s linear infinite;
+      will-change: transform;
     }
 
     @keyframes marquee {
@@ -530,14 +483,10 @@
       border: 0;
     }
 
-    .call-pulse {
-      animation: pulse-ring 2.4s ease-out infinite;
-    }
-
-    @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(196, 122, 26, 0.45); }
-      70% { box-shadow: 0 0 0 14px rgba(196, 122, 26, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(196, 122, 26, 0); }
+    @media (hover: hover) and (pointer: fine) {
+      .call-pulse:hover {
+        box-shadow: 0 0 0 10px rgba(196, 122, 26, 0.12);
+      }
     }
 
     .five-star-badge {
@@ -552,44 +501,10 @@
       letter-spacing: 0.12em;
     }
 
-    .five-star-shine {
-      animation: star-shine 3s ease-in-out infinite;
-    }
-
-    @keyframes star-shine {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.88; transform: scale(1.04); }
-    }
-
-    .stars-hero-animated {
-      display: inline-flex;
-      gap: 0.1em;
-    }
-
-    .star-char {
-      display: inline-block;
+    .stars-hero-static {
       color: #e8b84a;
-      text-shadow: 0 0 14px rgba(232, 184, 74, 0.45);
-      animation: star-twinkle 2.6s ease-in-out infinite;
-    }
-
-    .star-char:nth-child(1) { animation-delay: 0s; }
-    .star-char:nth-child(2) { animation-delay: 0.35s; }
-    .star-char:nth-child(3) { animation-delay: 0.7s; }
-    .star-char:nth-child(4) { animation-delay: 1.05s; }
-    .star-char:nth-child(5) { animation-delay: 1.4s; }
-
-    @keyframes star-twinkle {
-      0%, 100% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-        text-shadow: 0 0 12px rgba(232, 184, 74, 0.45);
-      }
-      50% {
-        transform: scale(1.18) translateY(-2px);
-        opacity: 0.92;
-        text-shadow: 0 0 26px rgba(232, 184, 74, 0.95), 0 0 8px rgba(255, 220, 120, 0.6);
-      }
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 10px rgba(232, 184, 74, 0.25);
     }
 
     .press-card {
@@ -735,8 +650,6 @@
       isolation: isolate;
       background:
         linear-gradient(125deg, rgba(28, 23, 18, 0.98) 0%, rgba(61, 46, 34, 0.96) 42%, rgba(28, 23, 18, 0.98) 100%);
-      background-size: 220% 220%;
-      animation: header-bg-shift 14s ease-in-out infinite;
       border-bottom: 1px solid rgba(232, 184, 74, 0.22);
       box-shadow:
         0 10px 36px -18px rgba(28, 23, 18, 0.55),
@@ -768,24 +681,12 @@
         rgba(232, 184, 74, 0.15) 80%,
         transparent 100%
       );
-      background-size: 220% 100%;
-      animation: header-line-shine 5s ease-in-out infinite;
       z-index: 0;
     }
 
     .site-header > div {
       position: relative;
       z-index: 1;
-    }
-
-    @keyframes header-bg-shift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    @keyframes header-line-shine {
-      0%, 100% { background-position: 0% 50%; opacity: 0.75; }
-      50% { background-position: 100% 50%; opacity: 1; }
     }
 
     .header-badge {
@@ -795,7 +696,6 @@
         0 0 0 1px rgba(255, 255, 255, 0.2),
         0 0 0 3px rgba(232, 184, 74, 0.22),
         0 10px 28px -12px rgba(196, 122, 26, 0.65);
-      animation: badge-glow 3.5s ease-in-out infinite;
       transition: transform 0.25s var(--ease-out-expo), box-shadow 0.25s ease;
     }
 
@@ -805,11 +705,6 @@
         0 0 0 1px rgba(255, 255, 255, 0.28),
         0 0 0 4px rgba(232, 184, 74, 0.32),
         0 14px 32px -10px rgba(196, 122, 26, 0.75);
-    }
-
-    @keyframes badge-glow {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.08); }
     }
 
     .header-nav-link {
@@ -1114,6 +1009,54 @@
       padding: 1.5rem;
     }
 
+    .menu-stage {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #ebe2d4;
+    }
+
+    .menu-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        url('images/cater-soup-bread-station.jpg') center 35% / cover no-repeat;
+      opacity: 0.16;
+      z-index: 0;
+    }
+
+    .menu-stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(47, 74, 58, 0.12) 0%, rgba(235, 226, 212, 0.94) 22%, rgba(240, 230, 216, 0.98) 100%);
+      z-index: 0;
+    }
+
+    .menu-stage > .mx-auto {
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-stage .menu-item,
+    .menu-stage .menu-footer {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(6px);
+    }
+
+    .reviews-google-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-google-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     .experiences-stage {
       background:
         radial-gradient(ellipse 70% 50% at 15% 20%, rgba(232, 184, 74, 0.14), transparent 60%),
@@ -1315,11 +1258,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .marquee-track, .service-img, .call-pulse, .five-star-shine,
-      .hero-gradient, .hero-orb, .hero-pattern, .hero-photo-main, .hero-photo-secondary,
-      .hero-photo-accent, .hero-badge, .hero-pill-dot, .service-detail,
-      .menu-panel, .site-header, .site-header::after, .header-badge,
-      .star-char, .stars-hero-animated {
+      .reveal, .marquee-track, .service-img, .service-detail, .menu-panel {
         animation: none !important;
         transition: none !important;
         opacity: 1 !important;
@@ -1365,8 +1304,6 @@
   <section class="hero-gradient relative overflow-hidden pt-32 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-28">
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
     <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
       <div class="reveal order-2 lg:order-1">
@@ -1396,12 +1333,12 @@
         </div>
 
         <div class="mt-10 border-t border-ink/10 pt-8">
-          <div class="five-star-badge five-star-shine flex flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div class="five-star-badge flex flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between">
             <div class="flex items-center gap-4">
-              <div class="stars-hero-animated text-3xl leading-none" aria-hidden="true"><span class="star-char">★</span><span class="star-char">★</span><span class="star-char">★</span><span class="star-char">★</span><span class="star-char">★</span></div>
+              <div class="stars-hero-static text-3xl leading-none" aria-hidden="true">★★★★★</div>
               <div>
                 <p class="font-display text-2xl font-bold text-ink sm:text-3xl">5-Star Service on Google</p>
-                <p class="text-sm font-medium text-bark/80">Perfect 5.0 rating</p>
+                <p class="text-sm font-medium text-bark/80">Perfect 5.0 rating · 4 verified reviews</p>
               </div>
             </div>
             <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 self-start rounded-full bg-ink px-4 py-2 text-sm font-semibold text-cream transition hover:bg-bark sm:self-center">
@@ -1699,7 +1636,7 @@
   </section>
 
   <!-- Menu -->
-  <section id="menu" class="bg-cream py-16 sm:py-20 lg:py-28">
+  <section id="menu" class="menu-stage py-16 sm:py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber">Menu &amp; packages</p>
@@ -2043,31 +1980,46 @@
         <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">Neighbors trust him.<br />Guests remember the food.</h2>
       </div>
 
-      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      <div class="reviews-google-grid mt-12">
         <blockquote class="reveal rounded-3xl bg-white p-8 shadow-card">
           <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">"It was absolutely phenomenal!! Thank you so much!"</p>
-          <footer class="mt-6 text-sm font-semibold text-bark">— Brea Held <span class="font-normal text-bark/60">· In-home chef dinner</span></footer>
+          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">&ldquo;It was absolutely phenomenal!! 🔥🔥 Thank you so much!&rdquo;</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— Brea Held <span class="font-normal text-bark/60">· Google review · In-home chef dinner</span></footer>
         </blockquote>
 
-        <blockquote class="reveal rounded-3xl bg-white p-8 shadow-card">
+        <blockquote class="reveal flex flex-col rounded-3xl bg-white p-8 shadow-card">
           <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="mt-4 font-display text-xl italic leading-relaxed text-ink">"The menu they picked for their daughter was top notch. What a great spread to celebrate a beautiful graduation."</p>
-          <footer class="mt-6 text-sm font-semibold text-bark">— 419 Venue Guy <span class="font-normal text-bark/60">· Graduation catering</span></footer>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-bark/75">Ken left a 5-star review on Google — full text is on Maps.</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— Ken Hermes <span class="font-normal text-bark/60">· Google review</span></footer>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read on Google Maps →</a>
         </blockquote>
 
-        <blockquote class="reveal overflow-hidden rounded-3xl bg-moss text-cream shadow-card">
+        <blockquote class="reveal flex flex-col rounded-3xl bg-white p-8 shadow-card">
+          <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-bark/75">Jasper left a 5-star review on Google — full text is on Maps.</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— Jasper Icarno <span class="font-normal text-bark/60">· Google review</span></footer>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read on Google Maps →</a>
+        </blockquote>
+
+        <blockquote class="reveal flex flex-col rounded-3xl bg-white p-8 shadow-card">
+          <div class="flex gap-1 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-bark/75">Another neighbor left a 5-star Google review — see the full quote on Maps.</p>
+          <footer class="mt-6 text-sm font-semibold text-bark">— Google reviewer <span class="font-normal text-bark/60">· Verified on Google Maps</span></footer>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJG_8boWLHO4gR156t2ApMzRk" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex text-sm font-semibold text-amber transition hover:text-rust">Read on Google Maps →</a>
+        </blockquote>
+      </div>
+
+      <blockquote class="reveal mt-6 overflow-hidden rounded-3xl bg-moss text-cream shadow-card">
           <img src="images/share-and-care.jpg" alt="419 Venue Guy catering at the Share and Care Center with signage visible" class="h-44 w-full object-cover object-[center_18%] sm:h-48" loading="lazy" />
           <div class="p-8">
             <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Share &amp; care</p>
             <p class="mt-3 font-display text-xl italic leading-relaxed text-cream/90">&ldquo;Every event matters — from weddings and graduations to the neighborhood gatherings that keep our communities fed.&rdquo;</p>
             <p class="mt-6 text-sm text-cream/70">Real events, real spreads, real smiles across the 419.</p>
           </div>
-        </blockquote>
-      </div>
+      </blockquote>
 
       <div class="reveal mt-8 five-star-badge rounded-3xl px-8 py-7 text-center shadow-card">
-        <p class="stars five-star-shine text-4xl" aria-hidden="true">★★★★★</p>
+        <p class="stars stars-hero-static text-4xl" aria-hidden="true">★★★★★</p>
         <p class="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">5-Star Service on Google</p>
         <p class="mt-2 text-lg text-bark/80">Perfect 5.0 rating — neighbors rate Zach top marks.</p>
         <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
