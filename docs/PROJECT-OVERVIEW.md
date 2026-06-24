@@ -138,7 +138,7 @@ An **image enhancement playbook** exists as a planning doc; batch sharpening has
 
 ## Build timeline (summary)
 
-Intensive build sprint **June 21–23, 2026** — 46 commits covering:
+Intensive build sprint **June 2026** (46 commits across a focused push) covering:
 
 1. Initial landing page with hero, services, gallery
 2. Menu + experiences sections + downloadable PDF
