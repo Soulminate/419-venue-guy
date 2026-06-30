@@ -26,7 +26,7 @@ const sections = [
   {
     title: 'How people find caterers on Google',
     body:
-      'When someone searches "caterer Fremont" or "food truck 419" or "event catering near me," Google usually shows two things:\n\n1. The map with local businesses (Google Business Profile — photos, stars, phone number)\n2. Regular website results below that\n\nYou are already strong on Facebook and referrals. Google is another lane — and it rewards consistency, not one big fix.',
+      'When someone searches "caterer Fremont," "wedding catering 419," "food truck near me," or similar, Google usually shows two things:\n\n1. The map with local businesses (Google Business Profile — photos, stars, phone number)\n2. Regular website results below that\n\nWedding searches are especially competitive — lots of caterers have been at it for years — but they are still worth showing up for over time. You are already strong on Facebook and referrals. Google is another lane, and it rewards consistency, not one big fix.',
   },
   {
     title: '1. Google Business Profile — start here',
@@ -34,8 +34,8 @@ const sections = [
     bullets: [
       'Set website to https://419venueguy.com',
       'Primary category: Caterer (Food Truck or Event Planner as secondary if they fit)',
-      'Description covers what you actually do: banquets, food truck, hibachi, photobooth, in-home chef, Fremont, 419 area',
-      'Upload 10–20 photos from real events — graduations, truck nights, backyard parties, whatever you have',
+      'Description covers what you actually do: weddings, banquets, food truck, hibachi, photobooth, in-home chef, Fremont, 419 area',
+      'Upload 10–20 photos from real events — weddings, graduations, truck nights, backyard parties, whatever you have',
       'Post every 2–4 weeks: a recent event photo, a menu highlight, or a seasonal note',
       'Reply to Google reviews when you can (even a quick thank you)',
     ],
@@ -44,7 +44,7 @@ const sections = [
   {
     title: '2. Google reviews — steady beats sudden',
     body:
-      'More reviews builds trust and visibility. You do not need hundreds — just keep adding them when you have a happy client.\n\nAfter a great event, something simple works:\n"If you have a minute, a Google review helps a ton. Mentioning what we did for your event is even better."\n\nAny event counts: banquets, food truck nights, hibachi, in-home dinners, graduations, fundraisers.',
+      'More reviews builds trust and visibility. You do not need hundreds — just keep adding them when you have a happy client.\n\nAfter a great event, something simple works:\n"If you have a minute, a Google review helps a ton. Mentioning what we did for your event is even better."\n\nAny event counts: weddings, banquets, food truck nights, hibachi, in-home dinners, graduations, fundraisers.',
   },
   {
     title: '3. Share 419venueguy.com the same way everywhere',
@@ -60,8 +60,8 @@ const sections = [
   {
     title: '4. Local connections still matter',
     bullets: [
-      'Venues you have worked with — a preferred vendor mention with your website link goes a long way',
-      'Photographers, DJs, planners in the area — trade referrals like you already do in person',
+      'Venues you have worked with — a preferred vendor mention with your website link goes a long way (wedding venues, community halls, etc.)',
+      'Photographers, DJs, wedding planners in the area — trade referrals like you already do in person',
       'Any local business directory you are already part of — make sure the link is current',
     ],
     note: 'One real link from a venue or local org beats a dozen tiny website tweaks.',
@@ -69,9 +69,9 @@ const sections = [
   {
     title: 'Website ideas — only when you want them',
     body:
-      'The site works great as one page right now. Down the road, if you want to target specific searches, we could add focused pages — things like food truck bookings, backyard hibachi, or event catering. Totally optional, no rush.\n\nOther behind-the-scenes stuff I can handle whenever:',
+      'The site works great as one page right now. Down the road, if you want to target specific searches, we could add focused pages — for example wedding catering, food truck bookings, or backyard hibachi. Each one gives Google a clearer page to point people to for that type of event. Totally optional, no rush.\n\nOther behind-the-scenes stuff I can handle whenever:',
     bullets: [
-      'Hook up Google Search Console so we can see what people are actually searching',
+      'Hook up Google Search Console so we can see what people are actually searching (e.g. "wedding catering Fremont," "food truck 419")',
       'Speed up images a bit for phones',
       'Refresh photos or menu pricing when you send updates',
     ],
@@ -125,7 +125,7 @@ const sections = [
     bullets: [
       '2–4 weeks: profile starts getting traction if photos and a couple reviews come in',
       '1–3 months: more visibility for searches like "caterer Fremont" or people looking you up by name',
-      '3–6 months: broader event and food truck searches start moving if you keep posting and collecting reviews',
+      '3–6 months: searches like wedding catering, food truck bookings, and general event catering start moving if you keep posting and collecting reviews',
       'Every event is another chance: photos, a review, a Facebook post',
     ],
     note: 'You built this on relationships. Google is the same thing — just slower and more public.',
