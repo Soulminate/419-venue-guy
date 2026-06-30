@@ -13,118 +13,109 @@ const ink = '#1c1712';
 const bark = '#3d2e22';
 const amber = '#c47a1a';
 const moss = '#2f4a3a';
+const margin = 48;
 const contentWidth = 516;
+const pageBottom = 744;
 
 const sections = [
   {
     title: 'The short version',
     body:
-      'Your website looks great and is set up correctly for Google. The reason more people are not finding you yet is not because the site is broken — Google needs time and signals to trust a newer site, and wedding searches are crowded with caterers who have been at it for years.\n\nMost of what moves the needle from here is stuff you can do in your normal week: reviews, photos, Google Business Profile, and sharing your link. We can handle the website upgrades on our side.',
+      'Your website looks great and is set up right for Google. If more people are not finding you yet, it is not because something is broken — Google just needs time to pick up on a newer site, and local catering searches take a while to crack.\n\nMost of what actually helps is stuff you already do well: real event photos, happy clients, Facebook, word of mouth. This guide is just the Google side of that — a handful of habits that add up over a few weeks.',
   },
   {
     title: 'How people find caterers on Google',
     body:
-      'When someone searches "wedding catering Fremont" or "caterer near me," Google usually shows two things:\n\n1. The map with local businesses (Google Business Profile — photos, stars, phone number)\n2. Regular website results below that\n\nFor weddings, people also check The Knot and WeddingWire before they visit a caterer\'s own site.\n\nYou are strong on Facebook and word of mouth. Google is the next channel — and it rewards consistency over time, not one big fix.',
+      'When someone searches "caterer Fremont" or "food truck 419" or "event catering near me," Google usually shows two things:\n\n1. The map with local businesses (Google Business Profile — photos, stars, phone number)\n2. Regular website results below that\n\nYou are already strong on Facebook and referrals. Google is another lane — and it rewards consistency, not one big fix.',
   },
   {
-    title: '1. Google Business Profile — do this first',
-    subtitle: 'Treat it like a second website. This is the #1 thing for local searches.',
+    title: '1. Google Business Profile — start here',
+    subtitle: 'Think of it as a second storefront. Biggest bang for your buck.',
     bullets: [
       'Set website to https://419venueguy.com',
-      'Primary category: Caterer (add Food Truck or Event Planner as secondary if they fit)',
-      'Description mentions: weddings, banquets, food truck, hibachi, photobooth, Fremont, 419 area',
-      'Upload 10–20 new photos from real events (weddings, graduations, food truck nights)',
-      'Post every 2–4 weeks — a recent event photo, menu highlight, or "booking fall weddings"',
-      'Reply to every Google review (even a short thank you helps)',
+      'Primary category: Caterer (Food Truck or Event Planner as secondary if they fit)',
+      'Description covers what you actually do: banquets, food truck, hibachi, photobooth, in-home chef, Fremont, 419 area',
+      'Upload 10–20 photos from real events — graduations, truck nights, backyard parties, whatever you have',
+      'Post every 2–4 weeks: a recent event photo, a menu highlight, or a seasonal note',
+      'Reply to Google reviews when you can (even a quick thank you)',
     ],
-    note: 'The map pack gets more clicks than most websites. Couples often pick from the map before they scroll down.',
+    note: 'The map section gets a lot of clicks. A lot of people pick from there before they ever scroll to websites.',
   },
   {
-    title: '2. Ask for Google reviews',
+    title: '2. Google reviews — steady beats sudden',
     body:
-      'More reviews = more trust = more visibility. You need steady growth and reviews that mention what you did.\n\nWhen you follow up after an event, try:\n"If you have a minute, a Google review really helps small businesses like mine. Mentioning the type of event (wedding, graduation, etc.) is a bonus."\n\nGood topics: wedding catering, food truck parties, backyard hibachi, in-home chef dinners, graduations.\n\nYou already have a 5-star rating. The goal is more reviews over time.',
+      'More reviews builds trust and visibility. You do not need hundreds — just keep adding them when you have a happy client.\n\nAfter a great event, something simple works:\n"If you have a minute, a Google review helps a ton. Mentioning what we did for your event is even better."\n\nAny event counts: banquets, food truck nights, hibachi, in-home dinners, graduations, fundraisers.',
   },
   {
-    title: '3. Share 419venueguy.com everywhere',
+    title: '3. Share 419venueguy.com the same way everywhere',
     bullets: [
       'Facebook page Website field',
       'Email signature',
-      'Quote PDFs and menus you send clients',
+      'Menus and quotes you send out',
       'Business cards',
-      'WeddingWire and The Knot profiles',
-      'Venues and planners — ask to list you as a preferred caterer with your link',
+      'Venues and planners you work with — ask if they will list you with your link',
     ],
-    note: 'Google notices when real people click your link from trusted places. Slow burn, but it adds up.',
+    note: 'Same link, same info, everywhere. Google picks up on that over time.',
   },
   {
-    title: '4. Wedding directories',
+    title: '4. Local connections still matter',
+    bullets: [
+      'Venues you have worked with — a preferred vendor mention with your website link goes a long way',
+      'Photographers, DJs, planners in the area — trade referrals like you already do in person',
+      'Any local business directory you are already part of — make sure the link is current',
+    ],
+    note: 'One real link from a venue or local org beats a dozen tiny website tweaks.',
+  },
+  {
+    title: 'Website ideas — only when you want them',
     body:
-      'You have a WeddingWire listing. Keep it updated with the same phone, email, and website; fresh wedding photos (not just food truck shots); and quick replies to inquiries.\n\nConsider The Knot if wedding work is a growth priority.\n\nThese sites often show above individual caterer websites for "wedding catering Fremont" searches.',
-  },
-  {
-    title: '5. Partner with venues and planners',
+      'The site works great as one page right now. Down the road, if you want to target specific searches, we could add focused pages — things like food truck bookings, backyard hibachi, or event catering. Totally optional, no rush.\n\nOther behind-the-scenes stuff I can handle whenever:',
     bullets: [
-      'Venues you have catered at — ask for a preferred vendors page with a link to 419venueguy.com',
-      'Wedding planners, photographers, DJs in Fremont / Toledo / Tiffin — trade referrals',
-      'Local chamber or small-business groups — directory listing with your website',
-    ],
-    note: 'One link from a local venue page is worth more than tweaking a sentence on your homepage.',
-  },
-  {
-    title: 'What we can build on the website',
-    body:
-      'Your site is one page today. Wedding searches want a page clearly about weddings — photos, packages, Fremont/419 in the text.\n\nPlanned upgrades (in order):',
-    bullets: [
-      'Wedding catering page — targets "wedding catering Fremont / 419"',
-      'Food truck page — private bookings and festival searches',
-      'Hibachi / private chef page — backyard parties, less competition than weddings',
-      'Search Console — see which searches bring people in',
-      'Faster images — small mobile speed boost',
-    ],
-    note: 'None of these replace Google Business Profile or reviews. They support them. Wedding page is the right first pick.',
-  },
-  {
-    title: 'What will not help much',
-    bullets: [
-      'Obsessing over tiny homepage wording every week',
-      'Paying for random SEO packages from cold emails',
-      'Expecting results in 48 hours — Google usually takes 4–12 weeks',
-      'Listing a street address if you do not want one public (we kept it city-level on purpose)',
+      'Hook up Google Search Console so we can see what people are actually searching',
+      'Speed up images a bit for phones',
+      'Refresh photos or menu pricing when you send updates',
     ],
   },
   {
-    title: '30-day plan',
+    title: 'What usually does not help',
+    bullets: [
+      'Random "SEO packages" from cold emails or phone calls',
+      'Expecting a flood of traffic in the first week — Google usually takes a month or two to reflect steady effort',
+      'Paying for ads before the free basics (profile, photos, reviews) are in decent shape',
+    ],
+  },
+  {
+    title: 'Simple 30-day plan',
     weeks: [
       {
         label: 'Week 1 — Google Business Profile',
         items: [
           'Confirm website = 419venueguy.com',
           'Upload 10+ event photos',
-          'Refresh business description (weddings + food truck + 419)',
-          'Make one profile post with a recent event photo',
+          'Refresh your business description',
+          'Make one profile post with a recent photo',
         ],
       },
       {
         label: 'Week 2 — Reviews',
         items: [
-          'Text or call 3 happiest recent clients for a Google review',
-          'Reply to any existing Google reviews',
+          'Reach out to 3 recent happy clients about a Google review',
+          'Reply to any reviews you have not answered yet',
         ],
       },
       {
-        label: 'Week 3 — Directories and links',
+        label: 'Week 3 — Links',
         items: [
-          'Update WeddingWire photos and website link',
-          'Add 419venueguy.com to Facebook About if needed',
-          'Email one venue or planner — ask for a vendor listing',
+          'Double-check Facebook About has 419venueguy.com',
+          'Add the link to your email signature if it is not there',
+          'Ask one venue or contact about listing you as a vendor',
         ],
       },
       {
-        label: 'Week 4 — Content',
+        label: 'Week 4 — Keep it visible',
         items: [
-          'Facebook post with 3–4 event photos and link to the site',
-          'Send us new photos or menu changes',
-          'Tell us if you want the wedding catering page built next',
+          'Facebook post with a few event photos and your site link',
+          'Send me any new photos or menu changes worth adding',
         ],
       },
     ],
@@ -132,96 +123,94 @@ const sections = [
   {
     title: 'Realistic expectations',
     bullets: [
-      '2–4 weeks: GBP traction if you post photos and get 2–3 new reviews',
-      '1–3 months: More map visibility for "caterer Fremont" and "419 venue guy"',
-      '3–6 months: Wedding and food truck keywords move with dedicated pages + steady reviews',
-      'Ongoing: Every event = photos, a review, and a Facebook post with your link',
+      '2–4 weeks: profile starts getting traction if photos and a couple reviews come in',
+      '1–3 months: more visibility for searches like "caterer Fremont" or people looking you up by name',
+      '3–6 months: broader event and food truck searches start moving if you keep posting and collecting reviews',
+      'Every event is another chance: photos, a review, a Facebook post',
     ],
-    note: 'You built the business on relationships. Google works the same way — just slower and in public.',
+    note: 'You built this on relationships. Google is the same thing — just slower and more public.',
   },
   {
-    title: 'Your action list',
+    title: 'Quick checklist',
     bullets: [
-      '☐ Google Business Profile updated with 419venueguy.com',
-      '☐ 10+ new photos on Google Business Profile',
-      '☐ Ask 3 recent clients for a Google review',
-      '☐ WeddingWire profile refreshed',
-      '☐ Share site link on Facebook and email signature',
-      '☐ Tell us when you want the wedding page built',
-      '☐ Send new event photos when you have them',
+      '☐ Google Business Profile has 419venueguy.com',
+      '☐ 10+ photos uploaded to your Google profile',
+      '☐ Asked a few recent clients for a review',
+      '☐ Site link on Facebook and email signature',
+      '☐ Sent any new event photos my way',
     ],
+  },
+  {
+    title: 'That is it',
+    body:
+      'No rush on any of this — pick what fits your week. If you want help finding your Google Business Profile login or knocking out any of the above together, just let me know.',
   },
 ];
 
-function drawHeader(doc, subtitle = 'Getting More People to Find You on Google') {
+function drawFirstPageHeader(doc) {
   doc.rect(0, 0, doc.page.width, 78).fill('#f8f4ec');
-  doc.fillColor(ink).font('Helvetica-Bold').fontSize(22).text('419 Venue Guy', 48, 22);
-  doc.font('Helvetica').fontSize(10).fillColor(bark).text(subtitle, 48, 48);
-  doc.moveTo(48, 86).lineTo(doc.page.width - 48, 86).strokeColor(amber).lineWidth(1.5).stroke();
+  doc.fillColor(ink).font('Helvetica-Bold').fontSize(22).text('419 Venue Guy', margin, 22);
+  doc.font('Helvetica').fontSize(10).fillColor(bark).text('Getting Found on Google — a few practical ideas', margin, 48);
+  doc.moveTo(margin, 86).lineTo(doc.page.width - margin, 86).strokeColor(amber).lineWidth(1.5).stroke();
   doc.y = 100;
 }
 
-function drawFooter(doc) {
-  const y = doc.page.height - 36;
-  doc.font('Helvetica').fontSize(8).fillColor(bark)
-    .text('419 Venue Guy · We specialize in smiles! · 419-208-5568 · Venueguy419@yahoo.com', 48, y, {
-      width: contentWidth,
-      align: 'center',
-    });
-}
-
-function ensureSpace(doc, h = 60) {
-  if (doc.y + h > doc.page.height - 64) {
-    drawFooter(doc);
+function ensureSpace(doc, h = 40) {
+  if (doc.y + h > pageBottom) {
     doc.addPage();
-    drawHeader(doc);
+    doc.y = margin;
   }
 }
 
 function writeBody(doc, text) {
-  ensureSpace(doc, 40);
-  doc.font('Helvetica').fontSize(10.5).fillColor(bark).text(text, 48, doc.y, { width: contentWidth, lineGap: 4 });
-  doc.y += doc.heightOfString(text, { width: contentWidth, lineGap: 4 }) + 14;
+  const h = doc.heightOfString(text, { width: contentWidth, lineGap: 4 });
+  ensureSpace(doc, h + 14);
+  doc.font('Helvetica').fontSize(10.5).fillColor(bark).text(text, margin, doc.y, { width: contentWidth, lineGap: 4 });
+  doc.y += h + 14;
 }
 
 function writeBullets(doc, bullets) {
   bullets.forEach((bullet) => {
-    ensureSpace(doc, 28);
     const line = `•  ${bullet}`;
-    doc.font('Helvetica').fontSize(10.5).fillColor(bark).text(line, 56, doc.y, { width: contentWidth - 8, lineGap: 3 });
-    doc.y += doc.heightOfString(line, { width: contentWidth - 8, lineGap: 3 }) + 5;
+    const h = doc.heightOfString(line, { width: contentWidth - 8, lineGap: 3 });
+    ensureSpace(doc, h + 8);
+    doc.font('Helvetica').fontSize(10.5).fillColor(bark).text(line, margin + 8, doc.y, { width: contentWidth - 8, lineGap: 3 });
+    doc.y += h + 6;
   });
-  doc.y += 6;
+  doc.y += 4;
 }
 
 function writeNote(doc, text) {
-  ensureSpace(doc, 36);
-  doc.roundedRect(48, doc.y, contentWidth, doc.heightOfString(text, { width: contentWidth - 24, lineGap: 3 }) + 16, 6)
-    .fillAndStroke('#f0e8dc', amber);
-  doc.fillColor(moss).font('Helvetica-Oblique').fontSize(9.5)
-    .text(text, 60, doc.y + 8, { width: contentWidth - 24, lineGap: 3 });
-  doc.y += doc.heightOfString(text, { width: contentWidth - 24, lineGap: 3 }) + 24;
+  const textW = contentWidth - 24;
+  const textH = doc.heightOfString(text, { width: textW, lineGap: 3 });
+  const boxH = textH + 16;
+  ensureSpace(doc, boxH + 12);
+  const y = doc.y;
+  doc.roundedRect(margin, y, contentWidth, boxH, 6).fillAndStroke('#f0e8dc', amber);
+  doc.fillColor(moss).font('Helvetica-Oblique').fontSize(9.5).text(text, margin + 12, y + 8, { width: textW, lineGap: 3 });
+  doc.y = y + boxH + 12;
 }
 
 await mkdir(outDir, { recursive: true });
 
-const doc = new PDFDocument({ size: 'LETTER', margins: { top: 0, bottom: 56, left: 48, right: 48 } });
+const doc = new PDFDocument({ size: 'LETTER', margins: { top: margin, bottom: margin, left: margin, right: margin }, autoFirstPage: true });
 const stream = createWriteStream(outFile);
 doc.pipe(stream);
 
-drawHeader(doc);
-doc.font('Helvetica').fontSize(10).fillColor(bark)
-  .text('Prepared June 2026 · Your website: 419venueguy.com', 48, doc.y, { width: contentWidth });
+drawFirstPageHeader(doc);
+doc.font('Helvetica').fontSize(10).fillColor(bark).text('For Zach · June 2026 · 419venueguy.com', margin, doc.y, { width: contentWidth });
 doc.y += 22;
 
 sections.forEach((section) => {
-  ensureSpace(doc, 72);
-  doc.fillColor(ink).font('Helvetica-Bold').fontSize(14).text(section.title, 48, doc.y);
+  ensureSpace(doc, 56);
+  doc.fillColor(ink).font('Helvetica-Bold').fontSize(14).text(section.title, margin, doc.y);
   doc.y += 20;
 
   if (section.subtitle) {
-    doc.font('Helvetica-Bold').fontSize(10.5).fillColor(amber).text(section.subtitle, 48, doc.y, { width: contentWidth });
-    doc.y += doc.heightOfString(section.subtitle, { width: contentWidth }) + 10;
+    const subH = doc.heightOfString(section.subtitle, { width: contentWidth });
+    ensureSpace(doc, subH + 10);
+    doc.font('Helvetica-Bold').fontSize(10.5).fillColor(amber).text(section.subtitle, margin, doc.y, { width: contentWidth });
+    doc.y += subH + 10;
   }
 
   if (section.body) writeBody(doc, section.body);
@@ -230,24 +219,16 @@ sections.forEach((section) => {
 
   if (section.weeks) {
     section.weeks.forEach((week) => {
-      ensureSpace(doc, 48);
-      doc.font('Helvetica-Bold').fontSize(11).fillColor(ink).text(week.label, 48, doc.y);
+      ensureSpace(doc, 40);
+      doc.font('Helvetica-Bold').fontSize(11).fillColor(ink).text(week.label, margin, doc.y);
       doc.y += 16;
       writeBullets(doc, week.items);
-      doc.y += 4;
     });
   }
+
+  doc.y += 6;
 });
 
-ensureSpace(doc, 80);
-doc.fillColor(ink).font('Helvetica-Bold').fontSize(12).text('Questions?', 48, doc.y);
-doc.y += 18;
-writeBody(
-  doc,
-  'Call or message us anytime. If you are not sure where your Google Business Profile login is, or you want help with the wedding page copy, we will walk through it step by step.',
-);
-
-drawFooter(doc);
 doc.end();
 
 await new Promise((resolve, reject) => {
