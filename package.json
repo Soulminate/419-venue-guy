@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "menu-pdf": "node scripts/generate-menu-pdf.mjs",
-    "image-playbook-pdf": "node scripts/generate-image-enhancement-doc-pdf.mjs"
+    "image-playbook-pdf": "node scripts/generate-image-enhancement-doc-pdf.mjs",
+    "google-guide-pdf": "node scripts/generate-google-visibility-pdf.mjs"
   },
   "devDependencies": {
     "pdfkit": "^0.17.2"
